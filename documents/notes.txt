@@ -1,0 +1,5 @@
+https://projecteuler.weebly.com/
+
+
+248:
+https://github.com/thrap/project-euler/blob/master/src/Java/Problem248.java
