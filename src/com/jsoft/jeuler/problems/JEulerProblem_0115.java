@@ -16,6 +16,7 @@ public class JEulerProblem_0115 extends EulerSolver {
         int maxN = 0;
         int m = 50;
 
+        //By trail and error, found that n has to be between 150 and 200.
         for(int n=150; n<=200; n++) {
             memory = new long[n + 1][m + 1];
             long ans = noOfWays(n, m);
@@ -50,6 +51,6 @@ public class JEulerProblem_0115 extends EulerSolver {
 
     @Override
     public String getProblemStatement() {
-        return "https://projecteuler.net/problem=114";
+        return "https://projecteuler.net/problem=115";
     }
 }
