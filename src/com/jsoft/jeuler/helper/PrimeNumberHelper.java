@@ -2,18 +2,59 @@ package com.jsoft.jeuler.helper;
 
 import java.math.BigInteger;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class PrimeNumberHelper {
 
     public static boolean checkPrime(long n) {
-        BigInteger b = new BigInteger(String.valueOf(n));
+        BigInteger b = BigInteger.valueOf(n);
         return b.isProbablePrime(1);
     }
 
     public static long nextPrime(long n) {
-        BigInteger b = new BigInteger(String.valueOf(n));
-        return Long.parseLong(b.nextProbablePrime().toString());
+        BigInteger b = BigInteger.valueOf(n);
+        return b.nextProbablePrime().longValue();
+    }
+
+    /**
+     * Counts the number of prime from 2 to n.
+     * @param n - Upper limit inclusive.
+     * @return - Number of prime between 2 to n.
+     */
+    public static long primeCount(long n) {
+        if(n<1) {
+            throw new IllegalArgumentException("n must be greater than 0");
+        }
+
+        /**
+         * http://mathworld.wolfram.com/PrimeCountingFunction.html
+         * key is x
+         * value is primeCount for 10^x
+         */
+        Map<Integer, Long> primeCountCache = new HashMap<>();
+        primeCountCache.put( 1,                  4L);
+        primeCountCache.put( 2,                 25L);
+        primeCountCache.put( 3,                168L);
+        primeCountCache.put( 4,              1_229L);
+        primeCountCache.put( 5,              9_592L);
+        primeCountCache.put( 6,             78_498L);
+        primeCountCache.put( 7,            664_579L);
+        primeCountCache.put( 8,          5_761_455L);
+        primeCountCache.put( 9,         50_847_534L);
+        primeCountCache.put(10,        455_052_511L);
+        primeCountCache.put(11,      4_118_054_813L);
+        primeCountCache.put(12,     37_607_912_018L);
+
+        long count = 1;
+        BigInteger limit = BigInteger.valueOf(n);
+        BigInteger curPrime = BigInteger.valueOf(2L);
+        while(curPrime.compareTo(limit) <= 0) {
+            curPrime = curPrime.nextProbablePrime();
+            count++;
+        }
+        return count;
     }
 
     public static boolean isPrime (int a) {
