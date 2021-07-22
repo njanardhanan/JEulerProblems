@@ -1,6 +1,7 @@
 package com.jsoft.jeuler.solver;
 
 import com.jsoft.jeuler.utils.Constants;
+import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 
 
 public class EulerSolverFactory {
@@ -13,8 +14,7 @@ public class EulerSolverFactory {
             return (IEulerSolver)Class.forName(problemClassName).getConstructor(int.class).newInstance(problemNo);
         } catch (Exception e) {
             System.out.println(e.getMessage());
+            throw new UnsupportedOperationException("Problem " + problemNo + " not implemented yet...");
         }
-
-        return null;
     }
 }

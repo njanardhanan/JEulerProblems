@@ -3,10 +3,14 @@ import com.jsoft.jeuler.utils.Logger;
 
 public class Main {
 
-    public static final int PROBLEM_NUMBER = 686;
+    public static final int PROBLEM_NUMBER = 749;
 
     public static void main(String[] args) {
-        EulerSolverFactory solver = new EulerSolverFactory();
-        solver.getSolver(PROBLEM_NUMBER).solve(new Logger());
+        try {
+            EulerSolverFactory solver = new EulerSolverFactory();
+            solver.getSolver(PROBLEM_NUMBER).solve(new Logger());
+        } catch (UnsupportedOperationException e) {
+            System.out.println(e.getLocalizedMessage());
+        }
     }
 }
