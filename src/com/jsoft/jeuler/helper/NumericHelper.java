@@ -12,6 +12,26 @@ public class NumericHelper {
         return aBigInt.add(new BigInteger(b)).toString();
     }
 
+    public static long mulmod(long a, long b, long mod) {
+        long res = 0; // Initialize result
+        a = a % mod;
+        while (b > 0) {
+            // If b is odd, add 'a' to result
+            if (b % 2 == 1) {
+                res = (res + a) % mod;
+            }
+
+            // Multiply 'a' with 2
+            a = (a * 2) % mod;
+
+            // Divide b by 2
+            b /= 2;
+        }
+
+        // Return result
+        return res % mod;
+    }
+
     public static Set<Integer> getDivisors(int n) {
         Set<Integer> listOfDivisors = new HashSet<>();
         for (int i=1; i<=Math.sqrt(n); i++) {
@@ -257,8 +277,7 @@ public class NumericHelper {
             return false;
         }
         for (long i = 3; i <= (long)Math.sqrt(n); i = i+2) {
-            if (n % i == 0)
-            {
+            if (n % i == 0) {
                 n = n/i;
 
                 // If i again divides, then
@@ -268,6 +287,19 @@ public class NumericHelper {
             }
         }
         return true;
+    }
+
+    public static long noOfSquareFreeNumber(long n) {
+        /***
+         * f(n) = Sum_{k=1..floor(sqrt(n))} mobius(k) * floor(n/k^2)
+         */
+        long squareFreeCount = 0;
+        long sqrt = (long)(long)Math.floor(Math.sqrt(n));
+        for (long i = 1; i <= sqrt; i++) {
+            squareFreeCount += (mobius(i) * (long) Math.floor(n / (i * i)));
+        }
+        return squareFreeCount;
+
     }
 
     //  return array [d, a, b] such that d = gcd(p, q), ap + bq = d
@@ -321,5 +353,37 @@ public class NumericHelper {
     public static long getSigma2(long n) {
         Set<Long> divisorN = getDivisors(n);
         return divisorN.stream().mapToLong(x -> x * x).sum();
+    }
+
+    public static long mobius(long n) {
+        long p = 0;
+
+        if (n == 1L) return 1;
+        if (n == 2L) return -1;
+
+        // Handling 2 separately
+        if (n % 2 == 0) {
+            n = n / 2;
+            p++;
+
+            // If 2^2 also divides N
+            if (n % 2 == 0)
+                return 0;
+        }
+
+        // Check for all other prime factors
+        for (long i = 3; i <= Math.sqrt(n); i = i+2) {
+            // If i divides n
+            if (n % i == 0) {
+                n = n / i;
+                p++;
+
+                // If i^2 also divides N
+                if (n % i == 0)
+                    return 0;
+            }
+        }
+
+        return (p % 2 == 0)? -1 : 1;
     }
 }

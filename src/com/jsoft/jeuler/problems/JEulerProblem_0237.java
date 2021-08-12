@@ -37,7 +37,7 @@ public class JEulerProblem_0237 extends EulerSolver {
 
         long LIMIT = (long) Math.pow(10, 12);
 
-        //From brute forece, we can find that the pattern repeats every for 3100000000, which is 31 x 10^8
+        //From brute force, we can find that the pattern repeats every for 3100000000, which is 31 x 10^8
         long modLIMIT = 3100000000l;
         long actualLIMIT = LIMIT % modLIMIT;
 

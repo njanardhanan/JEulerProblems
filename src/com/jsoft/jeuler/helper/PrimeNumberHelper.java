@@ -33,19 +33,19 @@ public class PrimeNumberHelper {
          * key is x
          * value is primeCount for 10^x
          */
-        Map<Integer, Long> primeCountCache = new HashMap<>();
-        primeCountCache.put( 1,                  4L);
-        primeCountCache.put( 2,                 25L);
-        primeCountCache.put( 3,                168L);
-        primeCountCache.put( 4,              1_229L);
-        primeCountCache.put( 5,              9_592L);
-        primeCountCache.put( 6,             78_498L);
-        primeCountCache.put( 7,            664_579L);
-        primeCountCache.put( 8,          5_761_455L);
-        primeCountCache.put( 9,         50_847_534L);
-        primeCountCache.put(10,        455_052_511L);
-        primeCountCache.put(11,      4_118_054_813L);
-        primeCountCache.put(12,     37_607_912_018L);
+//        Map<Integer, Long> primeCountCache = new HashMap<>();
+//        primeCountCache.put( 1,                  4L);
+//        primeCountCache.put( 2,                 25L);
+//        primeCountCache.put( 3,                168L);
+//        primeCountCache.put( 4,              1_229L);
+//        primeCountCache.put( 5,              9_592L);
+//        primeCountCache.put( 6,             78_498L);
+//        primeCountCache.put( 7,            664_579L);
+//        primeCountCache.put( 8,          5_761_455L);
+//        primeCountCache.put( 9,         50_847_534L);
+//        primeCountCache.put(10,        455_052_511L);
+//        primeCountCache.put(11,      4_118_054_813L);
+//        primeCountCache.put(12,     37_607_912_018L);
 
         long count = 1;
         BigInteger limit = BigInteger.valueOf(n);

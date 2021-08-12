@@ -45,15 +45,15 @@ public class JEulerProblem_0014 extends EulerSolver {
 
         if (memory.containsKey(n)) {
             return memory.get(n);
-        } if (n%2 == 0) {
-            long ans = 1 + getCollatzChainLength(n/2, memory);
-            memory.put(n, ans);
-            return ans;
-        } else {
-            long ans = 1 + getCollatzChainLength(3*n+1, memory);
-            memory.put(n, ans);
-            return ans;
         }
+        long ans;
+        if (n%2 == 0) {
+            ans = 1 + getCollatzChainLength(n / 2, memory);
+        } else {
+            ans = 1 + getCollatzChainLength(3 * n + 1, memory);
+        }
+        memory.put(n, ans);
+        return ans;
     }
 
     @Override
