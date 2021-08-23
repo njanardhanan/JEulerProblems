@@ -23,8 +23,12 @@ public class JEulerProblem_0024 extends EulerSolver {
 
     @Override
     public String getProblemStatement() {
-        return "If we list all the natural numbers below 10 that are multiples of 3 or 5, we get 3, 5, 6 and 9. The sum of these multiples is 23.\n" +
+        return "A permutation is an ordered arrangement of objects. For example, 3124 is one possible permutation of the digits 1, 2, 3 and 4." +
+                "\nIf all of the permutations are listed numerically or alphabetically, we call it lexicographic order." +
+                "\nThe lexicographic permutations of 0, 1 and 2 are:\n" +
                 "\n" +
-                "Find the sum of all the multiples of 3 or 5 below 1000.";
+                "012   021   102   120   201   210\n" +
+                "\n" +
+                "What is the millionth lexicographic permutation of the digits 0, 1, 2, 3, 4, 5, 6, 7, 8 and 9?";
     }
 }
