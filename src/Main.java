@@ -2,8 +2,7 @@ import com.jsoft.jeuler.solver.EulerSolverFactory;
 import com.jsoft.jeuler.utils.Logger;
 
 public class Main {
-
-    public static final int PROBLEM_NUMBER = 167;
+    public static final int PROBLEM_NUMBER = 500;
 
     public static void main(String[] args) {
         try {

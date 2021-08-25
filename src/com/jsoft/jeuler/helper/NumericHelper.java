@@ -386,4 +386,8 @@ public class NumericHelper {
 
         return (p % 2 == 0)? -1 : 1;
     }
+
+    public static boolean isHarshadNumber(long n) {
+        return n > 0 && n % sumOfDigits(n) == 0;
+    }
 }
