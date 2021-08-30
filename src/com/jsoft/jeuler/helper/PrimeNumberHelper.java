@@ -85,11 +85,9 @@ public class PrimeNumberHelper {
 
         prime[0] = prime[1] = false;
 
-        for(int p = 2; p*p <=n; p++)
-        {
+        for(int p = 2; p*p <=n; p++) {
             // If prime[p] is not changed, then it is a prime
-            if(prime[p] == true)
-            {
+            if(prime[p] == true) {
                 // Update all multiples of p
                 for(int i = p*2; i <= n; i += p)
                     prime[i] = false;
