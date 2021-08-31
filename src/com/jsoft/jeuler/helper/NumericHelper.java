@@ -56,6 +56,38 @@ public class NumericHelper {
         return listOfDivisors;
     }
 
+    public static Map<Integer, Integer> getPrimeFactors(int n) {
+        Map<Integer, Integer> primeFactors = new HashMap();
+
+        while (n%2==0) {
+            addToMap(primeFactors, 2);
+            n = n/ 2;
+        }
+
+        // n must be odd at this point.  So we can skip
+        for (int i=3; i<=Math.sqrt(n); i+=2) {
+            while (n%i==0) {
+                addToMap(primeFactors, i);
+                n = n/ i;
+            }
+        }
+
+        if (n>2) {
+            addToMap(primeFactors, n);
+        }
+
+        return primeFactors;
+    }
+
+    private static Map<Integer, Integer> addToMap(Map<Integer, Integer> map, int key) {
+        if(map.containsKey(key)) {
+            map.put(key, map.get(key)+1);
+        } else {
+            map.put(key, 1);
+        }
+        return map;
+    }
+
     public static Map<Long, Integer> getPrimeFactors(long n) {
         Map<Long, Integer> primeFactors = new HashMap();
 
@@ -235,12 +267,7 @@ public class NumericHelper {
     }
 
     public static long phi(int x) {
-        Map<Long, Integer> coprimes = getPrimeFactors(x);
-        double p = x * 1.0;
-        for(long n : coprimes.keySet()) {
-            p = p * (1 - (1/(n*1.0)));
-        }
-        return (long) p;
+        return phi((long)x);
     }
 
     public static long phi(long x) {

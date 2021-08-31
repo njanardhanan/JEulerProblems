@@ -19,9 +19,9 @@ public class JEulerProblem_0069 extends EulerSolver {
         int maxN = 0;
 
         for(int i=2; i<=NumericHelper.ONE_MILLION_INT; i++) {
-            Map<Long, Integer> coprimes = NumericHelper.getPrimeFactors(i);
+            Map<Integer, Integer> coprimes = NumericHelper.getPrimeFactors(i);
             double v = i * 1.0;
-            for(long n : coprimes.keySet()) {
+            for(int n : coprimes.keySet()) {
                 v = v * (1 - (1/(n*1.0)));
             }
             if(maxValue < (i/v)) {

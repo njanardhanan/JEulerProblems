@@ -19,12 +19,12 @@ public class JEulerProblem_0347 extends EulerSolver {
     public String solve() {
         final int LIMIT = 10 * NumericHelper.ONE_MILLION_INT;
         long sum = 0;
-        Map<Long, Map<Long, Integer>> data = new HashMap<>();
+        Map<Integer, Map<Integer, Integer>> data = new HashMap<>();
         for(int i=LIMIT; i>6; i--) {
-            Map<Long, Integer> map = NumericHelper.getPrimeFactors(i);
+            Map<Integer, Integer> map = NumericHelper.getPrimeFactors(i);
             if (map.size() == 2) {
-                long primeOne = (long)map.keySet().toArray()[0];
-                long primeTwo = (long)map.keySet().toArray()[1];
+                int primeOne = (int)map.keySet().toArray()[0];
+                int primeTwo = (int)map.keySet().toArray()[1];
                 if (primeOne < primeTwo) {
                     putData(primeOne, primeTwo, i, data);
                 } else {
@@ -32,15 +32,15 @@ public class JEulerProblem_0347 extends EulerSolver {
                 }
             }
         }
-        for(Map.Entry<Long, Map<Long, Integer>> e : data.entrySet()) {
-            for(Map.Entry<Long, Integer> ee : e.getValue().entrySet()) {
+        for(Map.Entry<Integer, Map<Integer, Integer>> e : data.entrySet()) {
+            for(Map.Entry<Integer, Integer> ee : e.getValue().entrySet()) {
                 sum += ee.getValue();
             }
         }
         return Long.toString(sum);
     }
 
-    private void putData(long x, long y, int v, Map<Long, Map<Long, Integer>> map) {
+    private void putData(int x, int y, int v, Map<Integer, Map<Integer, Integer>> map) {
         if (!map.containsKey(x)) {
             map.put(x, new HashMap<>());
         }

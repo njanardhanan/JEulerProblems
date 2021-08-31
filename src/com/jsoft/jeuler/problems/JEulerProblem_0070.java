@@ -21,9 +21,9 @@ public class JEulerProblem_0070 extends EulerSolver {
         double phiFunction = Double.MAX_VALUE;
 
         for(int i = 2; i<= NumericHelper.ONE_MILLION_INT * 10; i++) {
-            Map<Long, Integer> coprimes = NumericHelper.getPrimeFactors(i);
+            Map<Integer, Integer> coprimes = NumericHelper.getPrimeFactors(i);
             double v = i * 1.0;
-            for(long n : coprimes.keySet()) {
+            for(int n : coprimes.keySet()) {
                 v = v * (1 - (1/(n*1.0)));
             }
             if(Permutations.isPermutation(i, (long)v)) {
