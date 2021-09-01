@@ -1,9 +1,10 @@
 package com.jsoft.jeuler.problems;
 
-import com.jsoft.jeuler.combination.MultiCombinationIterator;
+import com.jsoft.jeuler.combinatorics.Generator;
 import com.jsoft.jeuler.solver.EulerSolver;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 public class JEulerProblem_0749 extends EulerSolver {
@@ -26,7 +27,7 @@ public class JEulerProblem_0749 extends EulerSolver {
     }
 
     public long getCombination(List<Integer> nums, int d) {
-        MultiCombinationIterator<Integer> combinationIterator = new MultiCombinationIterator(nums, d);
+        Iterator<List<Integer>> combinationIterator = Generator.combination(nums).multi(d).iterator();
         long ans = 0;
         //Example, if d = 2, then minValue will be 10 and maxValue will be 100
         long minValue = (long)Math.pow(10, d-1);

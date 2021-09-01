@@ -28,6 +28,10 @@ public class JEulerProblem_0549 extends EulerSolver {
     private long solveByLoop() {
         /**
          * THIS IS A SLOW METHOD
+         *          * Takes 614182 ms to output the answer.
+         *          * Improved to 223076 from 614182
+         *          * Need improvement.
+         *
          *
          * https://en.wikipedia.org/wiki/Kempner_function
          * Also called Smarandache function
@@ -56,16 +60,13 @@ public class JEulerProblem_0549 extends EulerSolver {
             }
         }
 
-        /**
-         * Takes 614182 ms to output the answer.
-         * Improved to 223076 from 614182
-         * Need improvement.
-         */
-
         return ans;
     }
 
     private long solveBySieve() {
+        /**
+         * Takes ~18 sec to output the answer.
+         */
         primeList = PrimeNumberHelper.sieveOfEratosthenesAsList(LIMIT);
         int[] smallestNumberDividesMFactorial = new int[LIMIT + 1];
         //Start with prime 2
