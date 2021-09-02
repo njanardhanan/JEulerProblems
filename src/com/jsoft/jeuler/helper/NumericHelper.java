@@ -330,6 +330,18 @@ public class NumericHelper {
     }
 
     //  return array [d, a, b] such that d = gcd(p, q), ap + bq = d
+    public static int[] extendedEuclidGCD(int p, int q) {
+        if (q == 0)
+            return new int[] { p, 1, 0 };
+
+        int[] vals = extendedEuclidGCD(q, p % q);
+        int d = vals[0];
+        int a = vals[2];
+        int b = vals[1] - (p / q) * vals[2];
+        return new int[] { d, a, b };
+    }
+
+    //  return array [d, a, b] such that d = gcd(p, q), ap + bq = d
     public static long[] extendedEuclidGCD(long p, long q) {
         if (q == 0)
             return new long[] { p, 1, 0 };
@@ -340,6 +352,21 @@ public class NumericHelper {
         long b = vals[1] - (p / q) * vals[2];
         return new long[] { d, a, b };
     }
+
+    public static int multiplicativeInverse(int a, int modulo) {
+
+        int[] egcdValues = extendedEuclidGCD(a, modulo);
+
+        // since multiplicative inverse exist iff gcd(a,modulo) =1
+        // if no inverse exist then return 0
+        if (egcdValues[0] != 1)
+            return 0;
+        if (egcdValues[1] > 0)
+            return egcdValues[1];
+        else
+            return egcdValues[1] + modulo;
+    }
+
 
     public static long chineseRemainder(long[] n, long[] a) {
 
