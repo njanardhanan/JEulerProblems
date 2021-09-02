@@ -32,6 +32,11 @@ public class NumericHelper {
         return res % mod;
     }
 
+    public static long addmod(long a, long b, long mod) {
+        //(A + B) mod C = (A mod C + B mod C) mod C
+        return (a%mod + b%mod) % mod;
+    }
+
     public static Set<Integer> getDivisors(int n) {
         Set<Integer> listOfDivisors = new HashSet<>();
         for (int i=1; i<=Math.sqrt(n); i++) {
@@ -293,6 +298,30 @@ public class NumericHelper {
                 C[j] = C[j] + C[j-1];
         }
         return C[k];
+    }
+
+    /**
+     * Returns sum of squares from 1 to n
+     * if n=5
+     * returns 1^2 + 2^2 + 3^2 + 4^2 + 5^2
+     */
+    public static BigInteger sumOfSquare(long x) {
+        BigInteger n = BigInteger.valueOf(x);
+        BigInteger nPlusOne = n.add(BigInteger.ONE);
+        BigInteger twoNPlusOne = BigInteger.valueOf(2).multiply(n).add(BigInteger.ONE);
+        BigInteger six = BigInteger.valueOf(6);
+        return n.multiply(nPlusOne).multiply(twoNPlusOne).divide(six);
+    }
+
+    /**
+     * Returns sum of squares from s to e
+     * if s=3 and e=5
+     * returns 3^2 + 4^2 + 5^2
+     */
+    public static BigInteger sumOfSquare(long s, long e) {
+        BigInteger sumOfS = sumOfSquare(s-1);
+        BigInteger sumOfE = sumOfSquare(e);
+        return sumOfE.subtract(sumOfS);
     }
 
     public static boolean isSquareFreeNumber(long n) {
