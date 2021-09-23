@@ -271,8 +271,13 @@ public class NumericHelper {
 
     }
 
-    public static long phi(int x) {
-        return phi((long)x);
+    public static int phi(int x) {
+        Map<Integer, Integer> coprimes = getPrimeFactors(x);
+        double p = x * 1.0;
+        for(int n : coprimes.keySet()) {
+            p = p * (1 - (1/(n*1.0)));
+        }
+        return (int) p;
     }
 
     public static long phi(long x) {
@@ -298,6 +303,10 @@ public class NumericHelper {
                 C[j] = C[j] + C[j-1];
         }
         return C[k];
+    }
+
+    public static long sumOfN(long n) {
+        return n * (n+1) / 2;
     }
 
     /**

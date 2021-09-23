@@ -16,15 +16,17 @@ public class JEulerProblem_0501 extends EulerSolver {
         /**
          * TOO SLOW FOR 10^12
          */
-        long limit = 1000000;
-        List<Long> primes = PrimeNumberHelper.sieveOfEratosthenesAsLongList((int)limit);
+        long limit = 1_000_000_000L;
+        List<Long> primes = PrimeNumberHelper.sieveOfEratosthenesAsLongList((int)limit/6);
+        System.out.println(primes.get(primes.size() - 1));
         int count = 0;
 
-        System.out.println("Prime count : " + PrimeNumberHelper.primeCount(10L));
+        long maxPrime = 0;
 
         //Check p^7
         for (long p : primes) {
             if ((long) Math.pow(p, 7) > limit) break;
+            if (maxPrime < p) maxPrime = p;
             count++;
         }
 
@@ -42,10 +44,12 @@ public class JEulerProblem_0501 extends EulerSolver {
                 if ((p2 * p2 * p2 * p1) > 0 && (p2 * p2 * p2 * p1) < limit) {
                     count++;
                 }
+                if (maxPrime < p1) maxPrime = p1;
+                if (maxPrime < p2) maxPrime = p2;
             }
         }
 
-        //Check p1^3 * p2
+        //Check p1 * p2 * p3
         for (int i = 0; i < primes.size(); i++) {
             long p1 = primes.get(i);
             if(p1 * p1 * p1 > limit) break;
@@ -61,10 +65,14 @@ public class JEulerProblem_0501 extends EulerSolver {
                     } else {
                         break;
                     }
+                    if (maxPrime < p1) maxPrime = p1;
+                    if (maxPrime < p2) maxPrime = p2;
+                    if (maxPrime < p3) maxPrime = p3;
                 }
             }
-
         }
+
+        System.out.println(maxPrime);
 
         return String.valueOf(count);
     }

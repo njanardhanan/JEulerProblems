@@ -97,7 +97,7 @@ public class JEulerProblem_0248 extends EulerSolver {
 
     public String solveBruteForce2() {
         long thirteenFact = NumericHelper.fatorial(13l);
-        System.out.println("Thireen fact " + thirteenFact);
+        System.out.println("Thirteen fact " + thirteenFact);
         //long thirteenFact = 24L;
         List<Long> fact = getDivisors(thirteenFact);
         Map<Long, List<Long>> eulerTotientMap = new HashMap();

@@ -5,6 +5,8 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
+import java.util.stream.LongStream;
 
 public class PrimeNumberHelper {
 
@@ -72,6 +74,11 @@ public class PrimeNumberHelper {
             }
         }
         return true;
+    }
+
+    public static List<Long> sieveLargePrimes(long from, long to) {
+        return LongStream.rangeClosed(from, to).filter(v ->
+                BigInteger.valueOf(v).isProbablePrime(1)).boxed().collect(Collectors.toList());
     }
 
     public static boolean[] sieveOfEratosthenes(int n)

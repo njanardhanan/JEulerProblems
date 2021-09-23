@@ -5,7 +5,6 @@ import com.jsoft.jeuler.helper.PrimeNumberHelper;
 import com.jsoft.jeuler.solver.EulerSolver;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 
