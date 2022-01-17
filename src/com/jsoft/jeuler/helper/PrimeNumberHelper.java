@@ -2,9 +2,12 @@ package com.jsoft.jeuler.helper;
 
 import java.math.BigInteger;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 import java.util.stream.Collectors;
 import java.util.stream.LongStream;
 
@@ -125,5 +128,44 @@ public class PrimeNumberHelper {
             }
         }
         return primeList;
+    }
+
+    public static boolean[] sieveByRange(long low, long high, List<Integer> primeSieves) {
+        if (high - low + 1 > (long)Integer.MAX_VALUE) {
+            return new boolean[1];
+        }
+
+        int range = (int)(high - low + 1);
+        boolean[] primes = new boolean [range];
+        Arrays.fill(primes,true);
+
+        for(long i : primeSieves) {
+            long x = (low/i);
+
+            if(x <= 1) {
+                x = i+i;
+            } else if(low%i != 0) {
+                x = (x*i)+i;
+            } else {
+                x = (x*i);
+            }
+
+            for(long j=x;j<=high;j=j+i) {
+                int index = (int)(j - low);
+                primes[index] = false;
+            }
+        }
+        return primes;
+    }
+
+    public static Set<Long> primesFromSieveByRange(long low, long high, boolean[] p) {
+        Set<Long> primes = new HashSet<>();
+        for(long i=low; i<=high; i++) {
+            int index = (int)(i - low);
+            if (p[index]) {
+                primes.add(i);
+            }
+        }
+        return primes;
     }
 }
