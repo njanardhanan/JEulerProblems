@@ -66,4 +66,9 @@ public class JEulerProblem_0077 extends EulerSolver {
     public String getProblemStatement() {
         return "How many different ways can one hundred be written as a sum of at least two positive integers?";
     }
+
+    @Override
+    public List<String> getTags() {
+        return null;
+    }
 }

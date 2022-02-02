@@ -3,6 +3,7 @@ package com.jsoft.jeuler.problems;
 import com.jsoft.jeuler.helper.PrimeNumberHelper;
 import com.jsoft.jeuler.solver.EulerSolver;
 
+import java.util.List;
 import java.util.OptionalInt;
 import java.util.stream.IntStream;
 
@@ -28,6 +29,11 @@ public class JEulerProblem_0003 extends EulerSolver {
         return "The prime factors of 13195 are 5, 7, 13 and 29.\n" +
                 "\n" +
                 "What is the largest prime factor of the number 600851475143 ?";
+    }
+
+    @Override
+    public List<String> getTags() {
+        return null;
     }
 
 }

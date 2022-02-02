@@ -1,12 +1,10 @@
 package com.jsoft.jeuler.problems;
 
-import com.jsoft.jeuler.helper.NumericHelper;
 import com.jsoft.jeuler.solver.EulerSolver;
 
 import java.math.BigInteger;
 import java.util.List;
 import java.util.stream.Collectors;
-import java.util.stream.LongStream;
 import java.util.stream.Stream;
 
 public class JEulerProblem_0025 extends EulerSolver {
@@ -35,5 +33,10 @@ public class JEulerProblem_0025 extends EulerSolver {
     @Override
     public String getProblemStatement() {
         return "What is the index of the first term in the Fibonacci sequence to contain 1000 digits?";
+    }
+
+    @Override
+    public List<String> getTags() {
+        return null;
     }
 }

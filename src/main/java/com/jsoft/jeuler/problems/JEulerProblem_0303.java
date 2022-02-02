@@ -6,6 +6,7 @@ import java.math.BigInteger;
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.LinkedList;
+import java.util.List;
 import java.util.Queue;
 import java.util.Set;
 
@@ -162,5 +163,10 @@ public class JEulerProblem_0303 extends EulerSolver {
          * </p>
          */
         return "https://projecteuler.net/problem=303";
+    }
+
+    @Override
+    public List<String> getTags() {
+        return null;
     }
 }

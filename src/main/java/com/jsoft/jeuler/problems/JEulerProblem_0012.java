@@ -4,6 +4,7 @@ import com.jsoft.jeuler.helper.NumericHelper;
 import com.jsoft.jeuler.helper.PrimeNumberHelper;
 import com.jsoft.jeuler.solver.EulerSolver;
 
+import java.util.List;
 import java.util.Set;
 
 public class JEulerProblem_0012 extends EulerSolver {
@@ -33,6 +34,11 @@ public class JEulerProblem_0012 extends EulerSolver {
     @Override
     public String getProblemStatement() {
         return "Find the sum of all the primes below two million.";
+    }
+
+    @Override
+    public List<String> getTags() {
+        return null;
     }
 
 }

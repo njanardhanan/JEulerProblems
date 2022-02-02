@@ -4,6 +4,7 @@ import com.jsoft.jeuler.helper.NumericHelper;
 import com.jsoft.jeuler.solver.EulerSolver;
 
 import java.math.BigInteger;
+import java.util.List;
 import java.util.stream.IntStream;
 
 public class JEulerProblem_0020 extends EulerSolver {
@@ -26,5 +27,10 @@ public class JEulerProblem_0020 extends EulerSolver {
     @Override
     public String getProblemStatement() {
         return "Find the sum of the digits in the number 100!.";
+    }
+
+    @Override
+    public List<String> getTags() {
+        return null;
     }
 }

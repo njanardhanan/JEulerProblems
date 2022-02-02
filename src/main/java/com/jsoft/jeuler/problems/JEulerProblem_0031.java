@@ -3,7 +3,9 @@ package com.jsoft.jeuler.problems;
 import com.jsoft.jeuler.solver.EulerSolver;
 
 import java.math.BigInteger;
+import java.util.Arrays;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 public class JEulerProblem_0031 extends EulerSolver {
@@ -42,5 +44,10 @@ public class JEulerProblem_0031 extends EulerSolver {
     @Override
     public String getProblemStatement() {
         return "How many different ways can £2 be made using any number of coins?";
+    }
+
+    @Override
+    public List<String> getTags() {
+        return Arrays.asList("dp", "dynamic programming", "coin", "counting");
     }
 }

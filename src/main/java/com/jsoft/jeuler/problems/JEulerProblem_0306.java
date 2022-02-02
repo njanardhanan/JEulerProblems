@@ -123,4 +123,9 @@ public class JEulerProblem_0306 extends EulerSolver {
                 "\nhttps://projecteuler.net/thread=301 \n";
         return s;
     }
+
+    @Override
+    public List<String> getTags() {
+        return null;
+    }
 }

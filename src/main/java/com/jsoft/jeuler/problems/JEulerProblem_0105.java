@@ -125,6 +125,11 @@ public class JEulerProblem_0105 extends EulerSolver {
 
     @Override
     public String getProblemStatement() {
-        return "https://projecteuler.net/problem=103";
+        return "https://projecteuler.net/problem=105";
+    }
+
+    @Override
+    public List<String> getTags() {
+        return Arrays.asList("problem", "103", "set", "disjoint", "subset");
     }
 }

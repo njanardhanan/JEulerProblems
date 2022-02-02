@@ -41,4 +41,9 @@ public class JEulerProblem_0203 extends EulerSolver {
     public String getProblemStatement() {
         return "Find the sum of the distinct squarefree numbers in the first 51 rows of Pascal's triangle";
     }
+
+    @Override
+    public List<String> getTags() {
+        return null;
+    }
 }

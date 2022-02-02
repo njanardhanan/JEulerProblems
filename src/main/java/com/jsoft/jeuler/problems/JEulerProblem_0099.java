@@ -4,6 +4,7 @@ import com.jsoft.jeuler.solver.EulerSolver;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.util.List;
 import java.util.Scanner;
 
 public class JEulerProblem_0099 extends EulerSolver {
@@ -59,5 +60,10 @@ public class JEulerProblem_0099 extends EulerSolver {
     @Override
     public String getProblemStatement() {
         return "https://projecteuler.net/problem=99";
+    }
+
+    @Override
+    public List<String> getTags() {
+        return null;
     }
 }

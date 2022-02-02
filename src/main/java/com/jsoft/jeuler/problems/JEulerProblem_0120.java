@@ -2,6 +2,8 @@ package com.jsoft.jeuler.problems;
 
 import com.jsoft.jeuler.solver.EulerSolver;
 
+import java.util.List;
+
 public class JEulerProblem_0120 extends EulerSolver {
 
     public JEulerProblem_0120(int problemNumber) {
@@ -31,5 +33,10 @@ public class JEulerProblem_0120 extends EulerSolver {
     @Override
     public String getProblemStatement() {
         return "https://projecteuler.net/problem=120";
+    }
+
+    @Override
+    public List<String> getTags() {
+        return null;
     }
 }

@@ -2,6 +2,8 @@ package com.jsoft.jeuler.problems;
 
 import com.jsoft.jeuler.solver.EulerSolver;
 
+import java.util.List;
+
 public class JEulerProblem_0008 extends EulerSolver {
 
     public JEulerProblem_0008(int problemNumber) {
@@ -49,6 +51,11 @@ public class JEulerProblem_0008 extends EulerSolver {
     @Override
     public String getProblemStatement() {
         return "Find the thirteen adjacent digits in the 1000-digit number that have the greatest product. What is the value of this product?";
+    }
+
+    @Override
+    public List<String> getTags() {
+        return null;
     }
 
 }

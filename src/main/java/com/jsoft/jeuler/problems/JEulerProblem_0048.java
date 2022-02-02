@@ -3,6 +3,7 @@ package com.jsoft.jeuler.problems;
 import com.jsoft.jeuler.solver.EulerSolver;
 
 import java.math.BigInteger;
+import java.util.List;
 import java.util.stream.LongStream;
 
 public class JEulerProblem_0048 extends EulerSolver {
@@ -34,5 +35,10 @@ public class JEulerProblem_0048 extends EulerSolver {
     @Override
     public String getProblemStatement() {
         return "Find the last ten digits of the series, 1^1 + 2^2 + 3^3 + ... + 1000^1000";
+    }
+
+    @Override
+    public List<String> getTags() {
+        return null;
     }
 }

@@ -3,6 +3,7 @@ package com.jsoft.jeuler.problems;
 import com.jsoft.jeuler.helper.NumericHelper;
 import com.jsoft.jeuler.solver.EulerSolver;
 
+import java.util.List;
 import java.util.Map;
 
 public class JEulerProblem_0745 extends EulerSolver {
@@ -61,5 +62,10 @@ public class JEulerProblem_0745 extends EulerSolver {
     public String getProblemStatement() {
         return "https://projecteuler.net/problem=745\n"
                 + "https://oeis.org/A008833";
+    }
+
+    @Override
+    public List<String> getTags() {
+        return null;
     }
 }

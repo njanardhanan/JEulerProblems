@@ -169,4 +169,9 @@ public class JEulerProblem_0549 extends EulerSolver {
                 "\n" +
                 "Find S(108).";
     }
+
+    @Override
+    public List<String> getTags() {
+        return null;
+    }
 }

@@ -3,6 +3,7 @@ package com.jsoft.jeuler.problems;
 import com.jsoft.jeuler.helper.NumericHelper;
 import com.jsoft.jeuler.solver.EulerSolver;
 
+import java.math.BigInteger;
 import java.util.*;
 
 public class JEulerProblem_0124 extends EulerSolver {
@@ -53,5 +54,10 @@ public class JEulerProblem_0124 extends EulerSolver {
     @Override
     public String getProblemStatement() {
         return "https://projecteuler.net/thread=124";
+    }
+
+    @Override
+    public List<String> getTags() {
+        return Arrays.asList("prime", "factor");
     }
 }

@@ -3,7 +3,9 @@ package com.jsoft.jeuler.problems;
 import com.jsoft.jeuler.helper.NumericHelper;
 import com.jsoft.jeuler.solver.EulerSolver;
 
+import java.util.Arrays;
 import java.util.LinkedList;
+import java.util.List;
 import java.util.Queue;
 
 public class JEulerProblem_0113 extends EulerSolver {
@@ -124,5 +126,10 @@ public class JEulerProblem_0113 extends EulerSolver {
                 "As n increases, the proportion of bouncy numbers below n increases such that there are only 12951 numbers below one-million that are not bouncy and only 277032 non-bouncy numbers below 10^10.\n" +
                 "\n" +
                 "How many numbers below a googol (10^100) are not bouncy?";
+    }
+
+    @Override
+    public List<String> getTags() {
+        return Arrays.asList("number", "construction", "generation", "queue", "increasing", "decreasing");
     }
 }

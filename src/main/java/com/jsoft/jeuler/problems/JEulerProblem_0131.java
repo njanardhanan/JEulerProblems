@@ -4,6 +4,9 @@ import com.jsoft.jeuler.helper.NumericHelper;
 import com.jsoft.jeuler.helper.PrimeNumberHelper;
 import com.jsoft.jeuler.solver.EulerSolver;
 
+import java.util.Arrays;
+import java.util.List;
+
 public class JEulerProblem_0131 extends EulerSolver {
 
     public JEulerProblem_0131(int problemNumber) {
@@ -45,5 +48,10 @@ public class JEulerProblem_0131 extends EulerSolver {
     @Override
     public String getProblemStatement() {
         return "https://projecteuler.net/problem=131";
+    }
+
+    @Override
+    public List<String> getTags() {
+        return Arrays.asList("prime", "sieve");
     }
 }

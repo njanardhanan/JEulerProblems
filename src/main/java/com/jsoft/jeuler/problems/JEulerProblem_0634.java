@@ -134,4 +134,9 @@ public class JEulerProblem_0634 extends EulerSolver {
     public String getProblemStatement() {
         return "https://projecteuler.net/problem=634";
     }
+
+    @Override
+    public List<String> getTags() {
+        return null;
+    }
 }

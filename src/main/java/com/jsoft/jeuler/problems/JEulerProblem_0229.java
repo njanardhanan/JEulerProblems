@@ -2,6 +2,8 @@ package com.jsoft.jeuler.problems;
 
 import com.jsoft.jeuler.solver.EulerSolver;
 
+import java.util.List;
+
 public class JEulerProblem_0229 extends EulerSolver {
 
     private final int LIMIT = 2 * (int)Math.pow(10, 9);
@@ -56,5 +58,10 @@ public class JEulerProblem_0229 extends EulerSolver {
     @Override
     public String getProblemStatement() {
         return  "\nhttps://projecteuler.net/problem=229";
+    }
+
+    @Override
+    public List<String> getTags() {
+        return null;
     }
 }

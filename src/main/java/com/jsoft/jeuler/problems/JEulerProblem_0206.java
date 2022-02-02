@@ -3,6 +3,7 @@ package com.jsoft.jeuler.problems;
 import com.jsoft.jeuler.solver.EulerSolver;
 
 import java.math.BigInteger;
+import java.util.List;
 
 public class JEulerProblem_0206 extends EulerSolver {
 
@@ -57,5 +58,10 @@ public class JEulerProblem_0206 extends EulerSolver {
     @Override
     public String getProblemStatement() {
         return "https://projecteuler.net/thread=112";
+    }
+
+    @Override
+    public List<String> getTags() {
+        return null;
     }
 }

@@ -71,4 +71,9 @@ public class JEulerProblem_0052 extends EulerSolver {
     public String getProblemStatement() {
         return "Find the smallest positive integer, x, such that 2x, 3x, 4x, 5x, and 6x, contain the same digits.";
     }
+
+    @Override
+    public List<String> getTags() {
+        return null;
+    }
 }

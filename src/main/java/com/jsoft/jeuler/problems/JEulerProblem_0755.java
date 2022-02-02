@@ -227,4 +227,9 @@ public class JEulerProblem_0755 extends EulerSolver {
                 "https://www.geeksforgeeks.org/count-of-ways-in-which-n-can-be-represented-as-sum-of-fibonacci-numbers-without-repetition/ \n" +
                 "https://projecteuler.net/problem=755\n";
     }
+
+    @Override
+    public List<String> getTags() {
+        return null;
+    }
 }

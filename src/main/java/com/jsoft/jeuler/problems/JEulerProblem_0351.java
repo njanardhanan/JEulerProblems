@@ -4,7 +4,9 @@ import com.jsoft.jeuler.helper.EulerHelper;
 import com.jsoft.jeuler.helper.NumericHelper;
 import com.jsoft.jeuler.solver.EulerSolver;
 
+import java.util.Arrays;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class JEulerProblem_0351 extends EulerSolver {
@@ -42,5 +44,10 @@ public class JEulerProblem_0351 extends EulerSolver {
     @Override
     public String getProblemStatement() {
         return "https://projecteuler.net/problem=351";
+    }
+
+    @Override
+    public List<String> getTags() {
+        return Arrays.asList("oeis", "euler", "totient");
     }
 }

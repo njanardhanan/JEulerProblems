@@ -118,4 +118,9 @@ public class JEulerProblem_0749 extends EulerSolver {
 
         //13459471903176422
     }
+
+    @Override
+    public List<String> getTags() {
+        return null;
+    }
 }

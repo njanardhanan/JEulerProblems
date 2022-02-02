@@ -2,6 +2,8 @@ package com.jsoft.jeuler.problems;
 
 import com.jsoft.jeuler.solver.EulerSolver;
 
+import java.util.List;
+
 public class JEulerProblem_0019 extends EulerSolver {
 
     public JEulerProblem_0019(int problemNumber) {
@@ -66,5 +68,10 @@ public class JEulerProblem_0019 extends EulerSolver {
     @Override
     public String getProblemStatement() {
         return "How many Sundays fell on the first of the month during the twentieth century (1 Jan 1901 to 31 Dec 2000)?";
+    }
+
+    @Override
+    public List<String> getTags() {
+        return null;
     }
 }

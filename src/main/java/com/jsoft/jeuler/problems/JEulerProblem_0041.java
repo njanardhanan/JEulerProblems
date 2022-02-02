@@ -52,4 +52,9 @@ public class JEulerProblem_0041 extends EulerSolver {
     public String getProblemStatement() {
         return "What is the largest n-digit pandigital prime that exists?";
     }
+
+    @Override
+    public List<String> getTags() {
+        return null;
+    }
 }

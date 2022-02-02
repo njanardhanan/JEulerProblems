@@ -2,7 +2,9 @@ package com.jsoft.jeuler.problems;
 
 import com.jsoft.jeuler.solver.EulerSolver;
 
+import java.util.Arrays;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class JEulerProblem_0164 extends EulerSolver {
@@ -67,5 +69,10 @@ public class JEulerProblem_0164 extends EulerSolver {
     @Override
     public String getProblemStatement() {
         return "How many 20 digit numbers n (without any leading zero) exist such that no three consecutive digits of n have a sum greater than 9?";
+    }
+
+    @Override
+    public List<String> getTags() {
+        return Arrays.asList("problem", "171", "dp", "dynamic programming", "recursion", "digits", "generation", "memoization");
     }
 }

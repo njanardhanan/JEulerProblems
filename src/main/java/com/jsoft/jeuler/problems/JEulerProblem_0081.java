@@ -71,4 +71,9 @@ import java.util.Scanner;
         public String getProblemStatement() {
             return "https://projecteuler.net/problem=81";
         }
+
+        @Override
+        public List<String> getTags() {
+            return null;
+        }
     }

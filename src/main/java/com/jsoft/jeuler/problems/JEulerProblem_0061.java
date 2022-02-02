@@ -3,6 +3,7 @@ package com.jsoft.jeuler.problems;
 import com.jsoft.jeuler.solver.EulerSolver;
 
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 public class JEulerProblem_0061 extends EulerSolver {
@@ -214,5 +215,10 @@ public class JEulerProblem_0061 extends EulerSolver {
     @Override
     public String getProblemStatement() {
         return "https://projecteuler.net/problem=61";
+    }
+
+    @Override
+    public List<String> getTags() {
+        return null;
     }
 }

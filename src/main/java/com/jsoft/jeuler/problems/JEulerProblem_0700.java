@@ -2,6 +2,8 @@ package com.jsoft.jeuler.problems;
 
 import com.jsoft.jeuler.solver.EulerSolver;
 
+import java.util.List;
+
 public class JEulerProblem_0700 extends EulerSolver {
 
     public JEulerProblem_0700(int problemNumber) {
@@ -48,5 +50,10 @@ public class JEulerProblem_0700 extends EulerSolver {
                 "For example, the first term is 1504170715041707 which is the first Eulercoin. The second term is 3008341430083414 which is greater than 1504170715041707 so is not an Eulercoin. However, the third term is 8912517754604 which is small enough to be a new Eulercoin.\n" +
                 "The sum of the first 2 Eulercoins is therefore 1513083232796311.\n" +
                 "Find the sum of all Eulercoins.";
+    }
+
+    @Override
+    public List<String> getTags() {
+        return null;
     }
 }

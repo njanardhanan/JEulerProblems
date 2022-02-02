@@ -4,6 +4,7 @@ import com.jsoft.jeuler.helper.NumericHelper;
 import com.jsoft.jeuler.helper.Permutations;
 import com.jsoft.jeuler.solver.EulerSolver;
 
+import java.util.List;
 import java.util.Map;
 
 public class JEulerProblem_0070 extends EulerSolver {
@@ -43,5 +44,10 @@ public class JEulerProblem_0070 extends EulerSolver {
     @Override
     public String getProblemStatement() {
         return "https://projecteuler.net/problem=70";
+    }
+
+    @Override
+    public List<String> getTags() {
+        return null;
     }
 }

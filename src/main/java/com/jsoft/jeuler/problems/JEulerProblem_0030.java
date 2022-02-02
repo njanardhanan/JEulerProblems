@@ -2,6 +2,8 @@ package com.jsoft.jeuler.problems;
 
 import com.jsoft.jeuler.solver.EulerSolver;
 
+import java.util.List;
+
 public class JEulerProblem_0030 extends EulerSolver {
 
     public JEulerProblem_0030(int problemNumber) {
@@ -36,5 +38,10 @@ public class JEulerProblem_0030 extends EulerSolver {
     @Override
     public String getProblemStatement() {
         return "Find the sum of all the numbers that can be written as the sum of fifth powers of their digits.";
+    }
+
+    @Override
+    public List<String> getTags() {
+        return null;
     }
 }

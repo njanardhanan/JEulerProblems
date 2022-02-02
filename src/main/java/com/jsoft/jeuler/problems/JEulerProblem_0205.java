@@ -5,6 +5,7 @@ import com.jsoft.jeuler.solver.EulerSolver;
 import java.math.RoundingMode;
 import java.text.DecimalFormat;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class JEulerProblem_0205 extends EulerSolver {
@@ -77,5 +78,10 @@ public class JEulerProblem_0205 extends EulerSolver {
                 "Peter and Colin roll their dice and compare totals: the highest total wins. The result is a draw if the totals are equal.\n" +
                 "\n" +
                 "What is the probability that Pyramidal Pete beats Cubic Colin? Give your answer rounded to seven decimal places in the form 0.abcdefg";
+    }
+
+    @Override
+    public List<String> getTags() {
+        return null;
     }
 }

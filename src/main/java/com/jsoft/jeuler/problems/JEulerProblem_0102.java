@@ -4,6 +4,8 @@ import com.jsoft.jeuler.solver.EulerSolver;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.util.Arrays;
+import java.util.List;
 import java.util.Scanner;
 
 public class JEulerProblem_0102 extends EulerSolver {
@@ -96,5 +98,10 @@ public class JEulerProblem_0102 extends EulerSolver {
     @Override
     public String getProblemStatement() {
         return "https://projecteuler.net/problem=102";
+    }
+
+    @Override
+    public List<String> getTags() {
+        return Arrays.asList("area", "triangle", "data");
     }
 }

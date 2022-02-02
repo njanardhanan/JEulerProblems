@@ -47,4 +47,9 @@ public class JEulerProblem_0187 extends EulerSolver {
     public String getProblemStatement() {
         return "How many composite integers, n < 10^8, have precisely two, not necessarily distinct, prime factors?";
     }
+
+    @Override
+    public List<String> getTags() {
+        return null;
+    }
 }

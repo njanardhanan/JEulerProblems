@@ -4,6 +4,7 @@ import com.jsoft.jeuler.helper.NumericHelper;
 import com.jsoft.jeuler.solver.EulerSolver;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class JEulerProblem_0075 extends EulerSolver {
@@ -92,5 +93,10 @@ public class JEulerProblem_0075 extends EulerSolver {
     @Override
     public String getProblemStatement() {
         return "https://projecteuler.net/thread=75";
+    }
+
+    @Override
+    public List<String> getTags() {
+        return null;
     }
 }

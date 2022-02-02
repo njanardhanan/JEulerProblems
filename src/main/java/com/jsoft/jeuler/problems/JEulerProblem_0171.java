@@ -2,7 +2,9 @@ package com.jsoft.jeuler.problems;
 
 import com.jsoft.jeuler.solver.EulerSolver;
 
+import java.util.Arrays;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class JEulerProblem_0171 extends EulerSolver {
@@ -105,5 +107,10 @@ public class JEulerProblem_0171 extends EulerSolver {
     @Override
     public String getProblemStatement() {
         return "How many 18-digit numbers n (without leading zeros) are there such that no digit occurs more than three times in n?";
+    }
+
+    @Override
+    public List<String> getTags() {
+        return Arrays.asList("problem", "164", "recursion", "digits", "generation", "memoization");
     }
 }

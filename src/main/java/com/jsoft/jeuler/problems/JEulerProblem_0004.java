@@ -37,4 +37,9 @@ public class JEulerProblem_0004 extends EulerSolver {
                 "Find the largest palindrome made from the product of two 3-digit numbers.";
     }
 
+    @Override
+    public List<String> getTags() {
+        return null;
+    }
+
 }

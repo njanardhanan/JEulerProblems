@@ -3,6 +3,7 @@ package com.jsoft.jeuler.problems;
 import com.jsoft.jeuler.helper.PrimeNumberHelper;
 import com.jsoft.jeuler.solver.EulerSolver;
 
+import java.util.Arrays;
 import java.util.List;
 import java.util.PriorityQueue;
 
@@ -73,5 +74,10 @@ public class JEulerProblem_0500 extends EulerSolver {
                 "\n" +
                 "Find the smallest number with 2^500500 divisors.\n" +
                 "Give your answer modulo 500500507.";
+    }
+
+    @Override
+    public List<String> getTags() {
+        return Arrays.asList("prime", "factor", "sieve");
     }
 }

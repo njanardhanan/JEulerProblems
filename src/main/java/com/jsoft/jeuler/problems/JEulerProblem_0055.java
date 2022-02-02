@@ -4,6 +4,7 @@ import com.jsoft.jeuler.helper.StringHelper;
 import com.jsoft.jeuler.solver.EulerSolver;
 
 import java.math.BigInteger;
+import java.util.List;
 import java.util.stream.Collectors;
 
 public class JEulerProblem_0055 extends EulerSolver {
@@ -40,5 +41,10 @@ public class JEulerProblem_0055 extends EulerSolver {
     @Override
     public String getProblemStatement() {
         return "How many Lychrel numbers are there below ten-thousand?";
+    }
+
+    @Override
+    public List<String> getTags() {
+        return null;
     }
 }

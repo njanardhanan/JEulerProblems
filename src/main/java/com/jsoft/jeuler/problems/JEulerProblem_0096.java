@@ -5,6 +5,7 @@ import com.jsoft.jeuler.sudoku.SudokuSolver;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.util.List;
 import java.util.Scanner;
 
 public class JEulerProblem_0096 extends EulerSolver {
@@ -71,5 +72,10 @@ public class JEulerProblem_0096 extends EulerSolver {
     @Override
     public String getProblemStatement() {
         return "https://projecteuler.net/problem=96";
+    }
+
+    @Override
+    public List<String> getTags() {
+        return null;
     }
 }

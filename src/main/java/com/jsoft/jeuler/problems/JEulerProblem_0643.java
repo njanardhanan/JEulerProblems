@@ -4,6 +4,7 @@ import com.jsoft.jeuler.helper.NumericHelper;
 import com.jsoft.jeuler.solver.EulerSolver;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.stream.LongStream;
 
@@ -124,5 +125,10 @@ public class JEulerProblem_0643 extends EulerSolver {
                 "<p>Let $f(n)$ be the number of pairs, $(p,q)$, of positive integers with $1\\le p\\lt q\\le n$ such that $p$ and $q$ are 2-friendly. You are given $f(10^2) = 1031$ and $f(10^6) = 321418433$ modulo $1\\,000\\,000\\,007$.</p>\n" +
                 "\n" +
                 "<p>Find $f(10^{11})$ modulo $1\\,000\\,000\\,007$.</p>";
+    }
+
+    @Override
+    public List<String> getTags() {
+        return null;
     }
 }

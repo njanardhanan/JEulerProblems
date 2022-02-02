@@ -3,6 +3,7 @@ package com.jsoft.jeuler.problems;
 import com.jsoft.jeuler.helper.NumericHelper;
 import com.jsoft.jeuler.solver.EulerSolver;
 
+import java.util.List;
 import java.util.Set;
 
 public class JEulerProblem_0013 extends EulerSolver {
@@ -128,6 +129,11 @@ public class JEulerProblem_0013 extends EulerSolver {
     @Override
     public String getProblemStatement() {
         return "Work out the first ten digits of the sum of the following one-hundred 50-digit numbers.";
+    }
+
+    @Override
+    public List<String> getTags() {
+        return null;
     }
 
 }

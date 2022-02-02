@@ -2,6 +2,9 @@ package com.jsoft.jeuler.problems;
 
 import com.jsoft.jeuler.solver.EulerSolver;
 
+import java.util.Arrays;
+import java.util.List;
+
 
 //Refer Problem 31
 public class JEulerProblem_0076 extends EulerSolver {
@@ -44,5 +47,10 @@ public class JEulerProblem_0076 extends EulerSolver {
     @Override
     public String getProblemStatement() {
         return "How many different ways can one hundred be written as a sum of at least two positive integers?";
+    }
+
+    @Override
+    public List<String> getTags() {
+        return Arrays.asList("problem 31", "dp", "dynamic programming");
     }
 }

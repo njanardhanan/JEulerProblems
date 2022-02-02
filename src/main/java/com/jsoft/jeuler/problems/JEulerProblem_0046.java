@@ -3,6 +3,8 @@ package com.jsoft.jeuler.problems;
 import com.jsoft.jeuler.helper.PrimeNumberHelper;
 import com.jsoft.jeuler.solver.EulerSolver;
 
+import java.util.List;
+
 public class JEulerProblem_0046 extends EulerSolver {
 
     public JEulerProblem_0046(int problemNumber) {
@@ -52,5 +54,10 @@ public class JEulerProblem_0046 extends EulerSolver {
     @Override
     public String getProblemStatement() {
         return "https://projecteuler.net/problem=45";
+    }
+
+    @Override
+    public List<String> getTags() {
+        return null;
     }
 }

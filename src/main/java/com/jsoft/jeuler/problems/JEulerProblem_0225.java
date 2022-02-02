@@ -2,6 +2,8 @@ package com.jsoft.jeuler.problems;
 
 import com.jsoft.jeuler.solver.EulerSolver;
 
+import java.util.List;
+
 public class JEulerProblem_0225 extends EulerSolver {
 
     public JEulerProblem_0225(int problemNumber) {
@@ -76,5 +78,10 @@ public class JEulerProblem_0225 extends EulerSolver {
                 "Find the 124th odd number that does not divide any terms of the above sequence.";
 
         return  s + "https://projecteuler.net/problem=225";
+    }
+
+    @Override
+    public List<String> getTags() {
+        return null;
     }
 }

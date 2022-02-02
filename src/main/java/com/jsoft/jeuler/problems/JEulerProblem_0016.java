@@ -4,6 +4,7 @@ import com.jsoft.jeuler.helper.NumericHelper;
 import com.jsoft.jeuler.solver.EulerSolver;
 
 import java.math.BigInteger;
+import java.util.List;
 
 public class JEulerProblem_0016 extends EulerSolver {
 
@@ -23,5 +24,10 @@ public class JEulerProblem_0016 extends EulerSolver {
     @Override
     public String getProblemStatement() {
         return "What is the sum of the digits of the number 2^1000?";
+    }
+
+    @Override
+    public List<String> getTags() {
+        return null;
     }
 }

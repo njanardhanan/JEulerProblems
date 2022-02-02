@@ -142,4 +142,9 @@ public class JEulerProblem_0268 extends EulerSolver {
                 "Find how many positive integers less than 10^16 are divisible by at least four distinct primes less than 100.\n";
         return problem + "https://projecteuler.net/thread=243";
     }
+
+    @Override
+    public List<String> getTags() {
+        return Arrays.asList("prime", "sieve");
+    }
 }

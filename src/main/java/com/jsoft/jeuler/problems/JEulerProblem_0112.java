@@ -3,6 +3,9 @@ package com.jsoft.jeuler.problems;
 import com.jsoft.jeuler.helper.NumericHelper;
 import com.jsoft.jeuler.solver.EulerSolver;
 
+import java.util.Arrays;
+import java.util.List;
+
 public class JEulerProblem_0112 extends EulerSolver {
 
     public JEulerProblem_0112(int problemNumber) {
@@ -29,5 +32,10 @@ public class JEulerProblem_0112 extends EulerSolver {
     @Override
     public String getProblemStatement() {
         return "https://projecteuler.net/thread=112";
+    }
+
+    @Override
+    public List<String> getTags() {
+        return Arrays.asList("bouncy", "count", "counting");
     }
 }

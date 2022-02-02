@@ -115,4 +115,9 @@ public class JEulerProblem_0521 extends EulerSolver {
                 "\n" +
                 "Find S(10^12) mod 10^9.";
     }
+
+    @Override
+    public List<String> getTags() {
+        return null;
+    }
 }

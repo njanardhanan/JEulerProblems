@@ -85,4 +85,9 @@ public class JEulerProblem_0095 extends EulerSolver {
     public String getProblemStatement() {
         return "Find the smallest member of the longest amicable chain with no element exceeding one million";
     }
+
+    @Override
+    public List<String> getTags() {
+        return null;
+    }
 }

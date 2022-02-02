@@ -5,6 +5,7 @@ import com.jsoft.jeuler.solver.EulerSolver;
 import sun.nio.cs.ext.MacHebrew;
 
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 public class JEulerProblem_0037 extends EulerSolver {
@@ -67,5 +68,10 @@ public class JEulerProblem_0037 extends EulerSolver {
     @Override
     public String getProblemStatement() {
         return "Find the sum of the only eleven primes that are both truncatable from left to right and right to left.";
+    }
+
+    @Override
+    public List<String> getTags() {
+        return null;
     }
 }

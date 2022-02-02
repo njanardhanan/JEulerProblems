@@ -53,4 +53,9 @@ public class JEulerProblem_0719 extends EulerSolver {
                 "Find $T(10^{12})$\n" +
                 "</p>";
     }
+
+    @Override
+    public List<String> getTags() {
+        return null;
+    }
 }

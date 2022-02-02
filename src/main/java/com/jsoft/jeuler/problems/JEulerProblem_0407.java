@@ -107,4 +107,9 @@ public class JEulerProblem_0407 extends EulerSolver {
                 "\n" +
                 "Find ∑M(n) for 1 ≤ n ≤ 10^7.";
     }
+
+    @Override
+    public List<String> getTags() {
+        return null;
+    }
 }

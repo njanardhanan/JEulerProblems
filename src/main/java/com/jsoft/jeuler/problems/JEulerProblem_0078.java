@@ -93,4 +93,9 @@ public class JEulerProblem_0078 extends EulerSolver {
     public String getProblemStatement() {
         return "Find the least value of n for which p(n) is divisible by one million, where p(n) in integer partition.";
     }
+
+    @Override
+    public List<String> getTags() {
+        return null;
+    }
 }

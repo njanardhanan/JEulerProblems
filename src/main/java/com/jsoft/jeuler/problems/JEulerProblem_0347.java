@@ -5,6 +5,7 @@ import com.jsoft.jeuler.helper.PrimeNumberHelper;
 import com.jsoft.jeuler.solver.EulerSolver;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
@@ -52,5 +53,10 @@ public class JEulerProblem_0347 extends EulerSolver {
     @Override
     public String getProblemStatement() {
         return "https://projecteuler.net/problem=347\n";
+    }
+
+    @Override
+    public List<String> getTags() {
+        return null;
     }
 }

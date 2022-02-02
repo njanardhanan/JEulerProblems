@@ -79,4 +79,9 @@ public class JEulerProblem_0130 extends EulerSolver {
     public String getProblemStatement() {
         return "https://projecteuler.net/problem=130";
     }
+
+    @Override
+    public List<String> getTags() {
+        return Arrays.asList("prime", "sieve");
+    }
 }

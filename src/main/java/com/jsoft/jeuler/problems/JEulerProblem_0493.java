@@ -5,6 +5,7 @@ import com.jsoft.jeuler.solver.EulerSolver;
 
 import java.math.RoundingMode;
 import java.text.DecimalFormat;
+import java.util.List;
 
 public class JEulerProblem_0493 extends EulerSolver {
 
@@ -33,5 +34,10 @@ public class JEulerProblem_0493 extends EulerSolver {
     @Override
     public String getProblemStatement() {
         return "This is a template file";
+    }
+
+    @Override
+    public List<String> getTags() {
+        return null;
     }
 }

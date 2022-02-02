@@ -3,6 +3,7 @@ package com.jsoft.jeuler.problems;
 import com.jsoft.jeuler.helper.NumericHelper;
 import com.jsoft.jeuler.solver.EulerSolver;
 
+import java.util.List;
 import java.util.stream.LongStream;
 
 public class JEulerProblem_0021 extends EulerSolver {
@@ -24,5 +25,10 @@ public class JEulerProblem_0021 extends EulerSolver {
     @Override
     public String getProblemStatement() {
         return "Evaluate the sum of all the amicable numbers under 10000";
+    }
+
+    @Override
+    public List<String> getTags() {
+        return null;
     }
 }

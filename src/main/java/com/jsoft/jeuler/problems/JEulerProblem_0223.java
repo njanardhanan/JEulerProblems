@@ -2,6 +2,8 @@ package com.jsoft.jeuler.problems;
 
 import com.jsoft.jeuler.solver.EulerSolver;
 
+import java.util.List;
+
 public class JEulerProblem_0223 extends EulerSolver {
 
     public JEulerProblem_0223(int problemNumber) {
@@ -39,5 +41,10 @@ public class JEulerProblem_0223 extends EulerSolver {
                 "\n" +
                 "How many barely acute triangles are there with perimeter ≤ 25,000,000?\n";
         return problem + "\nhttps://projecteuler.net/problem=223";
+    }
+
+    @Override
+    public List<String> getTags() {
+        return null;
     }
 }

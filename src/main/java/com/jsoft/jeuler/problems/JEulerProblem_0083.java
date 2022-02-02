@@ -263,4 +263,9 @@ import java.util.*;
         public String getProblemStatement() {
             return "https://projecteuler.net/problem=83";
         }
+
+        @Override
+        public List<String> getTags() {
+            return null;
+        }
     }

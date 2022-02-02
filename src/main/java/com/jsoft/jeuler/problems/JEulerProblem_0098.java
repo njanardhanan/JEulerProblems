@@ -182,4 +182,9 @@ public class JEulerProblem_0098 extends EulerSolver {
                 "\n" +
                 "NOTE: All anagrams formed must be contained in the given text file.";
     }
+
+    @Override
+    public List<String> getTags() {
+        return null;
+    }
 }

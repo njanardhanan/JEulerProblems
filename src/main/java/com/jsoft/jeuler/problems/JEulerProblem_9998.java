@@ -3,6 +3,7 @@ package com.jsoft.jeuler.problems;
 import com.jsoft.jeuler.solver.EulerSolver;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class JEulerProblem_9998 extends EulerSolver {
@@ -40,5 +41,10 @@ public class JEulerProblem_9998 extends EulerSolver {
     @Override
     public String getProblemStatement() {
         return "This is a template file";
+    }
+
+    @Override
+    public List<String> getTags() {
+        return null;
     }
 }

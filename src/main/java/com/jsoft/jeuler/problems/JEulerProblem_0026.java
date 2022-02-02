@@ -3,6 +3,7 @@ package com.jsoft.jeuler.problems;
 import com.jsoft.jeuler.solver.EulerSolver;
 
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 public class JEulerProblem_0026 extends EulerSolver {
@@ -51,5 +52,10 @@ public class JEulerProblem_0026 extends EulerSolver {
     @Override
     public String getProblemStatement() {
         return "Find the value of d < 1000 for which 1/d contains the longest recurring cycle in its decimal fraction part.";
+    }
+
+    @Override
+    public List<String> getTags() {
+        return null;
     }
 }

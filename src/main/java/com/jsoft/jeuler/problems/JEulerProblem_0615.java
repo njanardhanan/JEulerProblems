@@ -158,4 +158,9 @@ public class JEulerProblem_0615 extends EulerSolver {
                 "Find the millionth number with at least one million prime factors.\n" +
                 "Give your answer modulo 123454321.";
     }
+
+    @Override
+    public List<String> getTags() {
+        return null;
+    }
 }

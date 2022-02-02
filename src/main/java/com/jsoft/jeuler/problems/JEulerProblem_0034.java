@@ -43,4 +43,9 @@ public class JEulerProblem_0034 extends EulerSolver {
     public String getProblemStatement() {
         return "Find the sum of all numbers which are equal to the sum of the factorial of their digits.";
     }
+
+    @Override
+    public List<String> getTags() {
+        return null;
+    }
 }

@@ -4,6 +4,8 @@ import com.jsoft.jeuler.helper.NumericHelper;
 import com.jsoft.jeuler.helper.PrimeNumberHelper;
 import com.jsoft.jeuler.solver.EulerSolver;
 
+import java.util.List;
+
 public class JEulerProblem_0387 extends EulerSolver {
 
     public JEulerProblem_0387(int problemNumber) {
@@ -69,5 +71,10 @@ public class JEulerProblem_0387 extends EulerSolver {
                 "<p>You are given that the sum of the strong, right truncatable Harshad primes less than 10000 is 90619.</p>\n" +
                 "\n" +
                 "<p>Find the sum of the strong, right truncatable Harshad primes less than 10<sup>14</sup>.</p>";
+    }
+
+    @Override
+    public List<String> getTags() {
+        return null;
     }
 }

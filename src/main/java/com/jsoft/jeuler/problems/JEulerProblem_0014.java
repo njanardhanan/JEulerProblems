@@ -3,6 +3,7 @@ package com.jsoft.jeuler.problems;
 import com.jsoft.jeuler.solver.EulerSolver;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class JEulerProblem_0014 extends EulerSolver {
@@ -59,5 +60,10 @@ public class JEulerProblem_0014 extends EulerSolver {
     @Override
     public String getProblemStatement() {
         return "Which starting number, under one million, produces the longest Collatz sequence chain?";
+    }
+
+    @Override
+    public List<String> getTags() {
+        return null;
     }
 }

@@ -89,4 +89,9 @@ public class JEulerProblem_0104 extends EulerSolver {
     public String getProblemStatement() {
         return "What is the index of the first term in the Fibonacci sequence to contain 1000 digits?";
     }
+
+    @Override
+    public List<String> getTags() {
+        return null;
+    }
 }

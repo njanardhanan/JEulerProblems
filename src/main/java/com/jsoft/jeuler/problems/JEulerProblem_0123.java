@@ -6,6 +6,7 @@ import com.jsoft.jeuler.solver.EulerSolver;
 
 import java.math.BigInteger;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class JEulerProblem_0123 extends EulerSolver {
@@ -77,5 +78,10 @@ public class JEulerProblem_0123 extends EulerSolver {
     @Override
     public String getProblemStatement() {
         return "https://projecteuler.net/thread=112";
+    }
+
+    @Override
+    public List<String> getTags() {
+        return Arrays.asList("prime", "biginteger");
     }
 }

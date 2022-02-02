@@ -4,6 +4,7 @@ import com.jsoft.jeuler.helper.NumericHelper;
 import com.jsoft.jeuler.solver.EulerSolver;
 
 import java.math.BigInteger;
+import java.util.List;
 
 public class JEulerProblem_0401 extends EulerSolver {
 
@@ -95,5 +96,10 @@ public class JEulerProblem_0401 extends EulerSolver {
                 "Let SIGMA2 represent the summatory function of sigma2, that is SIGMA2(n)=∑sigma2(i) for i=1 to n.\n" +
                 "The first 6 values of SIGMA2 are: 1,6,16,37,63 and 113.\n" +
                 "Find SIGMA2(10^15) modulo 10^9.";
+    }
+
+    @Override
+    public List<String> getTags() {
+        return null;
     }
 }

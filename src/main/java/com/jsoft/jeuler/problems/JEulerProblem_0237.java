@@ -5,6 +5,7 @@ import com.jsoft.jeuler.solver.EulerSolver;
 import java.math.BigInteger;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
@@ -75,5 +76,10 @@ public class JEulerProblem_0237 extends EulerSolver {
     @Override
     public String getProblemStatement() {
         return  "https://projecteuler.net/problem=237";
+    }
+
+    @Override
+    public List<String> getTags() {
+        return null;
     }
 }

@@ -167,4 +167,9 @@ public class JEulerProblem_9999 extends EulerSolver {
     public String getProblemStatement() {
         return "just like that";
     }
+
+    @Override
+    public List<String> getTags() {
+        return null;
+    }
 }

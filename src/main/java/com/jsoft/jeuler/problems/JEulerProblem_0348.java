@@ -3,6 +3,7 @@ package com.jsoft.jeuler.problems;
 import com.jsoft.jeuler.solver.EulerSolver;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class JEulerProblem_0348 extends EulerSolver {
@@ -63,5 +64,10 @@ public class JEulerProblem_0348 extends EulerSolver {
                 "1197^2 + 156^3\n" +
                 "\n" +
                 "Find the sum of the five smallest such palindromic numbers.";
+    }
+
+    @Override
+    public List<String> getTags() {
+        return null;
     }
 }

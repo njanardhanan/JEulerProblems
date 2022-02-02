@@ -5,6 +5,7 @@ import com.jsoft.jeuler.solver.EulerSolver;
 
 import java.util.Arrays;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 import java.util.stream.IntStream;
 
@@ -47,5 +48,10 @@ public class JEulerProblem_0023 extends EulerSolver {
     @Override
     public String getProblemStatement() {
         return "Find the sum of all the positive integers which cannot be written as the sum of two abundant numbers";
+    }
+
+    @Override
+    public List<String> getTags() {
+        return Arrays.asList("abundant");
     }
 }

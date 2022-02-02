@@ -5,6 +5,7 @@ import com.jsoft.jeuler.solver.EulerSolver;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;
+import java.util.List;
 
 public class JEulerProblem_0080 extends EulerSolver {
 
@@ -65,5 +66,10 @@ public class JEulerProblem_0080 extends EulerSolver {
     @Override
     public String getProblemStatement() {
         return "https://projecteuler.net/problem=80";
+    }
+
+    @Override
+    public List<String> getTags() {
+        return null;
     }
 }

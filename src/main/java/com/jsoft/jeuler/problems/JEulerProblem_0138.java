@@ -4,6 +4,7 @@ import com.jsoft.jeuler.solver.EulerSolver;
 
 import java.math.BigDecimal;
 import java.math.BigInteger;
+import java.util.List;
 
 public class JEulerProblem_0138 extends EulerSolver {
 
@@ -121,5 +122,10 @@ public class JEulerProblem_0138 extends EulerSolver {
     @Override
     public String getProblemStatement() {
         return "https://projecteuler.net/thread=138";
+    }
+
+    @Override
+    public List<String> getTags() {
+        return null;
     }
 }

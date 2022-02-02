@@ -2,6 +2,8 @@ package com.jsoft.jeuler.problems;
 
 import com.jsoft.jeuler.solver.EulerSolver;
 
+import java.util.List;
+
 public class JEulerProblem_0002 extends EulerSolver {
 
     public JEulerProblem_0002(int problemNumber) {
@@ -40,6 +42,11 @@ public class JEulerProblem_0002 extends EulerSolver {
                 "1, 2, 3, 5, 8, 13, 21, 34, 55, 89, ...\n" +
                 "\n" +
                 "By considering the terms in the Fibonacci sequence whose values do not exceed four million, find the sum of the even-valued terms.";
+    }
+
+    @Override
+    public List<String> getTags() {
+        return null;
     }
 
 

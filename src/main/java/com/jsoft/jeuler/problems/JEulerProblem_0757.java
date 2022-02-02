@@ -3,6 +3,7 @@ package com.jsoft.jeuler.problems;
 import com.jsoft.jeuler.solver.EulerSolver;
 
 import java.util.Arrays;
+import java.util.List;
 
 public class JEulerProblem_0757 extends EulerSolver {
 
@@ -116,5 +117,10 @@ public class JEulerProblem_0757 extends EulerSolver {
                 "You are also given that there are 2851 stealthy numbers not exceeding 10^6.\n" +
                 "\n" +
                 "How many stealthy numbers are there that don't exceed 10^14?";
+    }
+
+    @Override
+    public List<String> getTags() {
+        return null;
     }
 }

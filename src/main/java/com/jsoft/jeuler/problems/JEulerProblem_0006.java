@@ -2,6 +2,7 @@ package com.jsoft.jeuler.problems;
 
 import com.jsoft.jeuler.solver.EulerSolver;
 
+import java.util.List;
 import java.util.stream.LongStream;
 
 public class JEulerProblem_0006 extends EulerSolver {
@@ -23,6 +24,11 @@ public class JEulerProblem_0006 extends EulerSolver {
     @Override
     public String getProblemStatement() {
         return "Find the difference between the sum of the squares of the first one hundred natural numbers and the square of the sum.";
+    }
+
+    @Override
+    public List<String> getTags() {
+        return null;
     }
 
 }

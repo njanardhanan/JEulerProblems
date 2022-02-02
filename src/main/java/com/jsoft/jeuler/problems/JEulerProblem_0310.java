@@ -192,4 +192,9 @@ public class JEulerProblem_0310 extends EulerSolver {
                 "\n";
         return problem + "\nhttps://projecteuler.net/thread=310";
     }
+
+    @Override
+    public List<String> getTags() {
+        return null;
+    }
 }

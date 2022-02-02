@@ -38,4 +38,9 @@ public class JEulerProblem_0038 extends EulerSolver {
     public String getProblemStatement() {
         return "What is the largest 1 to 9 pandigital 9-digit number that can be formed as the concatenated product of an integer with (1,2, ... , n) where n > 1?";
     }
+
+    @Override
+    public List<String> getTags() {
+        return null;
+    }
 }

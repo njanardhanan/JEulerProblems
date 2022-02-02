@@ -83,4 +83,9 @@ public class JEulerProblem_0293 extends EulerSolver {
                 "\n" +
                 "Find the sum of all distinct pseudo-Fortunate numbers for admissible numbers N less than 10^9.";
     }
+
+    @Override
+    public List<String> getTags() {
+        return null;
+    }
 }

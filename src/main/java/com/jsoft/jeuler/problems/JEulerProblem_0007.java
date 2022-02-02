@@ -3,6 +3,7 @@ package com.jsoft.jeuler.problems;
 import com.jsoft.jeuler.helper.PrimeNumberHelper;
 import com.jsoft.jeuler.solver.EulerSolver;
 
+import java.util.List;
 import java.util.stream.LongStream;
 
 public class JEulerProblem_0007 extends EulerSolver {
@@ -27,6 +28,11 @@ public class JEulerProblem_0007 extends EulerSolver {
     @Override
     public String getProblemStatement() {
         return "What is the 10 001st prime number?";
+    }
+
+    @Override
+    public List<String> getTags() {
+        return null;
     }
 
 }

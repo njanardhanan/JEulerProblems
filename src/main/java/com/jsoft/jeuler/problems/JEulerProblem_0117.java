@@ -2,6 +2,9 @@ package com.jsoft.jeuler.problems;
 
 import com.jsoft.jeuler.solver.EulerSolver;
 
+import java.util.Arrays;
+import java.util.List;
+
 public class JEulerProblem_0117 extends EulerSolver {
 
     public JEulerProblem_0117(int problemNumber) {
@@ -60,6 +63,11 @@ public class JEulerProblem_0117 extends EulerSolver {
 
     @Override
     public String getProblemStatement() {
-        return "https://projecteuler.net/problem=116";
+        return "https://projecteuler.net/problem=117";
+    }
+
+    @Override
+    public List<String> getTags() {
+        return Arrays.asList("dp", "dynamic", "programming", "noofways", "memoization");
     }
 }

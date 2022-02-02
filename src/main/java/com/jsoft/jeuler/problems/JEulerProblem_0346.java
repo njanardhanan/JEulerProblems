@@ -3,6 +3,7 @@ package com.jsoft.jeuler.problems;
 import com.jsoft.jeuler.solver.EulerSolver;
 
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 public class JEulerProblem_0346 extends EulerSolver {
@@ -54,5 +55,10 @@ public class JEulerProblem_0346 extends EulerSolver {
                 "We shall call a positive integer with this property a strong repunit. It can be verified that there are 8 strong repunits below 50:  {1,7,13,15,21,31,40,43}. <br />Furthermore, the sum of all strong repunits below 1000 equals 15864.\n" +
                 "</p>\n" +
                 "Find the sum of all strong repunits below 10<sup>12</sup>.\n";
+    }
+
+    @Override
+    public List<String> getTags() {
+        return null;
     }
 }
