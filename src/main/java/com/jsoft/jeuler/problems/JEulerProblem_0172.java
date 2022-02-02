@@ -7,14 +7,15 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class JEulerProblem_0171 extends EulerSolver {
+public class JEulerProblem_0172 extends EulerSolver {
 
-    public JEulerProblem_0171(int problemNumber) {
+    public JEulerProblem_0172(int problemNumber) {
         super(problemNumber);
     }
     private final int LIMIT = 18;
     private final int ALLOWED_DIGITS_COUNT = 3;
     private Map<String, Long> memo = new HashMap<>();
+    private long memoHitCount = 0;
 
     @Override
     public String solve() {
@@ -33,6 +34,7 @@ public class JEulerProblem_0171 extends EulerSolver {
         map[1] = ALLOWED_DIGITS_COUNT - 1;
 
 
+        //long r = solve("1", map);
         long r = solve(1, map);
         //System.out.println(r);
         /**
@@ -40,6 +42,8 @@ public class JEulerProblem_0171 extends EulerSolver {
          *  so multiply by 9
          */
         ans = r * 9L;
+
+        System.out.println("Memo hit count " + memoHitCount);
 
         return Long.toString(ans);
     }
@@ -58,6 +62,7 @@ public class JEulerProblem_0171 extends EulerSolver {
          */
         String d = getData(map);
         if (memo.containsKey(d)) {
+            memoHitCount++;
             return memo.get(d);
         }
 
@@ -111,6 +116,6 @@ public class JEulerProblem_0171 extends EulerSolver {
 
     @Override
     public List<String> getTags() {
-        return Arrays.asList("problem", "164", "recursion", "digits", "generation", "memoization");
+        return Arrays.asList("problem", "164", "recursion", "digits", "generation", "memoization", "counting");
     }
 }

@@ -3,7 +3,11 @@ package com.jsoft.jeuler.problems;
 import com.jsoft.jeuler.solver.EulerSolver;
 
 import java.math.BigInteger;
-import java.util.*;
+import java.util.Arrays;
+import java.util.BitSet;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
 
 public class JEulerProblem_0310 extends EulerSolver {
 
@@ -63,22 +67,15 @@ public class JEulerProblem_0310 extends EulerSolver {
         int[] frequency = new int[maxNimValueInPowerTwo];
 
         long firstLostPlayerCount = 0;
-        BigInteger bigInteger = BigInteger.ZERO;
 
         for(int a=LIMIT; a>=0; a--) {
-            //int b = a;
             for (int b = a; b == a; b++) {
                 for (int c = b; c <= LIMIT; c++) {
                     frequency[nimValue[b] ^ nimValue[c]]++;
                 }
             }
             firstLostPlayerCount += frequency[nimValue[a]];
-            bigInteger = bigInteger.add(BigInteger.valueOf(frequency[nimValue[a]]));
         }
-
-        //2586528661783
-        //2544781364419
-        System.out.println(bigInteger.toString());
 
         return Long.toString(firstLostPlayerCount);
     }
