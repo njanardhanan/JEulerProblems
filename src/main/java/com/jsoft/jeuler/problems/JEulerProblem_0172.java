@@ -60,7 +60,7 @@ public class JEulerProblem_0172 extends EulerSolver {
          * key takeaway - understand how repetitions can be cached.
          * eg: [ 2,3,3,3,3,3,3,3,3,3 ] would yield the same number of solutions regardless of which digit was used up.
          */
-        String d = getData(map);
+        String d = getMemoHash(map);
         if (memo.containsKey(d)) {
             memoHitCount++;
             return memo.get(d);
@@ -76,13 +76,13 @@ public class JEulerProblem_0172 extends EulerSolver {
             }
         }
 
-        d = getData(map);
+        d = getMemoHash(map);
         memo.put(d, result);
 
         return result;
     }
 
-    private String getData(int[] map) {
+    private String getMemoHash(int[] map) {
         StringBuilder sb = new StringBuilder();
         for (int i = 0; i < 10; i++) {
             sb.append(map[i]);
@@ -116,6 +116,6 @@ public class JEulerProblem_0172 extends EulerSolver {
 
     @Override
     public List<String> getTags() {
-        return Arrays.asList("problem", "164", "recursion", "digits", "generation", "memoization", "counting");
+        return Arrays.asList("problem", "164", "178", "recursion", "digits", "generation", "memoization", "counting");
     }
 }

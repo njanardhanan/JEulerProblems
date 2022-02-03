@@ -73,6 +73,6 @@ public class JEulerProblem_0164 extends EulerSolver {
 
     @Override
     public List<String> getTags() {
-        return Arrays.asList("problem", "171", "dp", "dynamic programming", "recursion", "digits", "generation", "memoization");
+        return Arrays.asList("problem", "172", "178", "dp", "dynamic programming", "recursion", "digits", "generation", "memoization");
     }
 }

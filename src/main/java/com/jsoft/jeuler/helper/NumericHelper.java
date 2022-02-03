@@ -482,4 +482,13 @@ public class NumericHelper {
     public static boolean isHarshadNumber(long n) {
         return n > 0 && n % sumOfDigits(n) == 0;
     }
+
+    public static boolean isTerminatingFraction(int num, int denom) {
+        while (denom % 2 == 0) denom /= 2;
+        while (denom % 5 == 0) denom /= 5;
+        if (num % denom == 0) {
+            return true;
+        }
+        return false;
+    }
 }
