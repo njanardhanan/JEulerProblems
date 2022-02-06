@@ -13,9 +13,16 @@ import java.util.stream.LongStream;
 
 public class PrimeNumberHelper {
 
+    public static final long NOT_PRIME = -1;
+
     public static boolean checkPrime(long n) {
         BigInteger b = BigInteger.valueOf(n);
         return b.isProbablePrime(1);
+    }
+
+    public static boolean checkPrime(long n, int certainty) {
+        BigInteger b = BigInteger.valueOf(n);
+        return b.isProbablePrime(certainty);
     }
 
     public static long nextPrime(long n) {
@@ -70,6 +77,7 @@ public class PrimeNumberHelper {
         }
         return true;
     }
+
     public static boolean isPrime (long a) {
         for(int b=2; b<=(long)Math.sqrt(a); b++) {
             if(a%b==0) {
@@ -77,6 +85,17 @@ public class PrimeNumberHelper {
             }
         }
         return true;
+    }
+
+    public static long isPrime(long n, List<Long> primes) {
+        long sqrt = (long)Math.sqrt(n);
+        for (long p : primes) {
+            if (p > sqrt) break;
+            if (n % p == 0) {
+                return p;
+            }
+        }
+        return NOT_PRIME;
     }
 
     public static List<Long> sieveLargePrimes(long from, long to) {

@@ -6,7 +6,6 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.Set;
 
 public class JEulerProblem_0201 extends EulerSolver {
 
@@ -66,7 +65,7 @@ public class JEulerProblem_0201 extends EulerSolver {
             tmpMap.putIfAbsent(setSize, new HashMap<>());
             for (Map.Entry<Integer, Integer> f : e.getValue().entrySet()) {
                 int setSum = f.getKey() + num;
-                tmpMap.get(setSize).put(setSum, f.getValue());  
+                tmpMap.get(setSize).put(setSum, f.getValue());
             }
         }
     }
