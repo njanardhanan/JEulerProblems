@@ -116,6 +116,26 @@ public class NumericHelper {
         return primeFactors;
     }
 
+    public static Map<Long, Integer> getPrimeFactors(long n, List<Long> primes) {
+        Map<Long, Integer> primeFactors = new HashMap();
+
+        for(long p : primes) {
+            while (n%p == 0) {
+                addToMap(primeFactors, p);
+                n = n / p;
+            }
+            if (n < p) {
+                break;
+            }
+        }
+
+        if (n>2) {
+            addToMap(primeFactors, n);
+        }
+
+        return primeFactors;
+    }
+
     private static Map<Long, Integer> addToMap(Map<Long, Integer> map, long key) {
         if(map.containsKey(key)) {
             map.put(key, map.get(key)+1);

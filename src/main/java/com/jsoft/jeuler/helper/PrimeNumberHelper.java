@@ -13,8 +13,6 @@ import java.util.stream.LongStream;
 
 public class PrimeNumberHelper {
 
-    public static final long NOT_PRIME = -1;
-
     public static boolean checkPrime(long n) {
         BigInteger b = BigInteger.valueOf(n);
         return b.isProbablePrime(1);
@@ -87,20 +85,20 @@ public class PrimeNumberHelper {
         return true;
     }
 
-    public static long isPrime(long n, List<Long> primes) {
+    public static boolean isPrime(long n, List<Long> primes) {
         long sqrt = (long)Math.sqrt(n);
         for (long p : primes) {
             if (p > sqrt) break;
             if (n % p == 0) {
-                return p;
+                return false;
             }
         }
-        return NOT_PRIME;
+        return true;
     }
 
     public static List<Long> sieveLargePrimes(long from, long to) {
         return LongStream.rangeClosed(from, to).filter(v ->
-                BigInteger.valueOf(v).isProbablePrime(1)).boxed().collect(Collectors.toList());
+                BigInteger.valueOf(v).isProbablePrime(5)).boxed().collect(Collectors.toList());
     }
 
     public static boolean[] sieveOfEratosthenes(int n)
