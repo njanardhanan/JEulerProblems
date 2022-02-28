@@ -521,4 +521,35 @@ public class NumericHelper {
         }
         return false;
     }
+
+    public static List<List<List<Integer>>> partitions(List<Integer> inputSet) {
+        List<List<List<Integer>>> res = new ArrayList<>();
+        if (inputSet.isEmpty()) {
+            List<List<Integer>> empty = new ArrayList<>();
+            res.add(empty);
+            return res;
+        }
+        int limit = 1 << (inputSet.size() - 1);
+        // Note the separate variable to avoid resetting
+        // the loop variable on each iteration.
+        for (int j = 0; j < limit; ++j) {
+            List<List<Integer>> parts = new ArrayList<>();
+            List<Integer> part1 = new ArrayList<>();
+            List<Integer> part2 = new ArrayList<>();
+            parts.add(part1);
+            parts.add(part2);
+            int i = j;
+            for (Integer item : inputSet) {
+                parts.get(i&1).add(item);
+                i >>= 1;
+            }
+            for (List<List<Integer>> b : partitions(part2)) {
+                List<List<Integer>> holder = new ArrayList<>();
+                holder.add(part1);
+                holder.addAll(b);
+                res.add(holder);
+            }
+        }
+        return res;
+    }
 }

@@ -77,6 +77,7 @@ public class PrimeNumberHelper {
     }
 
     public static boolean isPrime (long a) {
+        if (a < 2) return false;
         for(int b=2; b<=(long)Math.sqrt(a); b++) {
             if(a%b==0) {
                 return false;
