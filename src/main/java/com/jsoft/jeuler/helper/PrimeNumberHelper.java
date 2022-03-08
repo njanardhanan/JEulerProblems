@@ -28,45 +28,6 @@ public class PrimeNumberHelper {
         return b.nextProbablePrime().longValue();
     }
 
-    /**
-     * Counts the number of prime from 2 to n.
-     * @param n - Upper limit inclusive.
-     * @return - Number of prime between 2 to n.
-     */
-    public static long primeCount(long n) {
-        if(n<1) {
-            throw new IllegalArgumentException("n must be greater than 0");
-        }
-
-        /**
-         * http://mathworld.wolfram.com/PrimeCountingFunction.html
-         * key is x
-         * value is primeCount for 10^x
-         */
-//        Map<Integer, Long> primeCountCache = new HashMap<>();
-//        primeCountCache.put( 1,                  4L);
-//        primeCountCache.put( 2,                 25L);
-//        primeCountCache.put( 3,                168L);
-//        primeCountCache.put( 4,              1_229L);
-//        primeCountCache.put( 5,              9_592L);
-//        primeCountCache.put( 6,             78_498L);
-//        primeCountCache.put( 7,            664_579L);
-//        primeCountCache.put( 8,          5_761_455L);
-//        primeCountCache.put( 9,         50_847_534L);
-//        primeCountCache.put(10,        455_052_511L);
-//        primeCountCache.put(11,      4_118_054_813L);
-//        primeCountCache.put(12,     37_607_912_018L);
-
-        long count = 1;
-        BigInteger limit = BigInteger.valueOf(n);
-        BigInteger curPrime = BigInteger.valueOf(2L);
-        while(curPrime.compareTo(limit) <= 0) {
-            curPrime = curPrime.nextProbablePrime();
-            count++;
-        }
-        return count;
-    }
-
     public static boolean isPrime (int a) {
         for(int b=2; b<=(int)Math.sqrt(a); b++) {
             if(a%b==0) {
@@ -185,5 +146,135 @@ public class PrimeNumberHelper {
             }
         }
         return primes;
+    }
+
+    /**
+     *
+     * https://projecteuler.net/thread=10;page=5
+     *
+     * Solution by Lucy_Hedgehog
+     *
+     * Here is a solution that is more efficient than the sieve of Eratosthenes. It is derived from similar algorithms for http://en.wikipedia.org/wiki/Prime-counting_function.
+     * The advantage is that there is no need to find all the primes to find their sum.
+     *
+     * The main idea is as follows: Let S(v,m) be the sum of integers in the range 2..v that remain after sieving with all primes smaller or equal than m.
+     * That is S(v,m) is the sum of integers up to v that are either prime or the product of primes larger than m.
+     *
+     * S(v, p) is equal to S(v, p-1) if p is not prime or v is smaller than p*p. Otherwise (p prime, p*p<=v) S(v,p) can be computed from S(v,p-1) by finding the sum of integers that are removed while sieving with p.
+     * An integer is removed in this step if it is the product of p with another integer that has no divisor smaller than p. This can be expressed as
+     *
+     * S(v, p) = S(v, p-1) - p * (S(v/p, p-1) - S(p -1, p-1))
+     *
+     * Dynamic programming can be used to implement this. It is sufficient to compute S(v,p) for all positive integers v that are representable as floor(n/k) for some integer k and all p <= SQRT(v).
+     *
+     * @param num
+     * @return
+     */
+    public static long getPrimeSum(long num) {
+        /**
+         * This method guaranteed to work till 10^10.
+         * num > 10^10 will overflow, consider using the method with BigInteger.
+         */
+        int sqrtNum = (int)Math.sqrt(num);
+        List<Long> V = LongStream.range(1, sqrtNum+1).map(i -> num/i).boxed().collect(Collectors.toList());
+        long lastItem = V.get(V.size() - 1);
+        for (long i = lastItem-1; i > 0; --i)
+            V.add(i);
+
+        Map<Long, Long> S = new HashMap<>();
+        for(long n : V) {
+            BigInteger b = BigInteger.valueOf(n).multiply(BigInteger.valueOf(n+1)).divide(BigInteger.valueOf(2)).subtract(BigInteger.ONE);
+            S.put(n, b.longValue());
+        }
+
+        for (long p = 2; p <= sqrtNum; p++) {
+            if (S.get(p) > S.get(p-1)) {   //p is prime
+                long sp = S.get(p-1);      // sum of primes smaller than p
+                long p2 = p*p;
+                for(long v : V) {
+                    if (v < p2) break;
+                    long sum = S.get(v);
+                    sum -= p * (S.get(v/p) - sp);
+                    S.put(v, sum);
+                }
+            }
+        }
+
+        return S.get(num);
+    }
+
+    public static BigInteger getPrimeSumWithBigInteger(long num) {
+        /**
+         * This method guaranteed to work till 10^10.
+         * num > 10^10 will overflow, consider using the method with BigInteger.
+         */
+        long sqrtNum = (long)Math.sqrt(num);
+        List<Long> V = LongStream.range(1, sqrtNum+1).map(i -> num/i).boxed().collect(Collectors.toList());
+        long lastItem = V.get(V.size() - 1);
+        for (long i = lastItem-1; i > 0; --i)
+            V.add(i);
+
+        Map<Long, BigInteger> S = new HashMap<>();
+        for(long n : V) {
+            BigInteger b = BigInteger.valueOf(n).multiply(BigInteger.valueOf(n+1)).divide(BigInteger.valueOf(2)).subtract(BigInteger.ONE);
+            S.put(n, b);
+        }
+
+        for (long p = 2; p <= sqrtNum; p++) {
+            if (S.get(p).compareTo(S.get(p-1)) > 0) {   //p is prime
+                BigInteger sp = S.get(p-1);      // sum of primes smaller than p
+                long p2 = p*p;
+                for(long v : V) {
+                    if (v < p2) break;
+                    BigInteger sum = S.get(v);
+                    BigInteger vp = S.get(v/p).subtract(sp);
+                    sum = sum.subtract(BigInteger.valueOf(p).multiply(vp));
+                    S.put(v, sum);
+                }
+            }
+        }
+
+        return S.get(num);
+    }
+
+    public static long getPrimeCount(long num) {
+        int sqrtNum = (int)Math.sqrt(num);
+        List<Long> V = LongStream.range(1, sqrtNum+1).map(i -> num/i).boxed().collect(Collectors.toList());
+        long lastItem = V.get(V.size() - 1);
+        for (long i = lastItem-1; i > 0; --i)
+            V.add(i);
+
+        Map<Long, BigInteger> S = new HashMap<>();
+        for(long n : V) {
+            BigInteger b = BigInteger.valueOf(n).multiply(BigInteger.valueOf(n+1)).divide(BigInteger.valueOf(2)).subtract(BigInteger.ONE);
+            S.put(n, b);
+        }
+
+        Map<Long, Long> C = new HashMap<>();
+        for(long n : V) {
+            C.put(n, n-1);
+        }
+
+        for (long p = 2; p <= sqrtNum; p++) {
+            if (S.get(p).compareTo(S.get(p-1)) > 0) {   //p is prime
+                long cp = C.get(p-1);            // number of primes smaller than p
+                BigInteger sp = S.get(p-1);      // sum of primes smaller than p
+                long p2 = p*p;
+                for(long v : V) {
+                    if (v < p2) break;
+
+                    long count = C.get(v);
+                    count -= C.get(v/p) - cp;
+                    C.put(v, count);
+
+                    BigInteger sum = S.get(v);
+                    BigInteger vp = S.get(v/p).subtract(sp);
+                    sum = sum.subtract(BigInteger.valueOf(p).multiply(vp));
+                    S.put(v, sum);
+                }
+            }
+        }
+
+        return C.get(num);
     }
 }

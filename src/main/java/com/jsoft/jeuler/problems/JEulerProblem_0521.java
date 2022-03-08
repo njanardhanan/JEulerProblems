@@ -1,14 +1,18 @@
 package com.jsoft.jeuler.problems;
 
-import com.jsoft.jeuler.combinatorics.Generator;
 import com.jsoft.jeuler.helper.PrimeNumberHelper;
 import com.jsoft.jeuler.solver.EulerSolver;
 
 import java.math.BigInteger;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.SortedSet;
+import java.util.TreeSet;
+import java.util.stream.Collectors;
+import java.util.stream.LongStream;
 
 public class JEulerProblem_0521 extends EulerSolver {
 
@@ -18,10 +22,67 @@ public class JEulerProblem_0521 extends EulerSolver {
 
     private long LIMIT = (long)Math.pow(10, 12);
     private long MOD = (long)Math.pow(10, 9);
+    private BigInteger BIG_MOD = BigInteger.TEN.pow(9);
 
     @Override
     public String solve() {
-        System.out.println("NOT SOLVED YET, THIS IS TOO SLOW");
+        long ans = solveByAlgo();
+        return Long.toString(ans);
+    }
+
+    public long solveByAlgo() {
+        long ans = 0;
+        int sqrtNum = (int)Math.sqrt(LIMIT);
+        List<Long> V = LongStream.range(1, sqrtNum+1).map(i -> LIMIT/i).boxed().collect(Collectors.toList());
+        long lastItem = V.get(V.size() - 1);
+        for (long i = lastItem-1; i > 0; --i)
+            V.add(i);
+
+        Map<Long, BigInteger> S = new HashMap<>();
+        for(long n : V) {
+            BigInteger b = BigInteger.valueOf(n).multiply(BigInteger.valueOf(n+1)).divide(BigInteger.valueOf(2)).subtract(BigInteger.ONE);
+            S.put(n, b);
+        }
+
+        Map<Long, Long> C = new HashMap<>();
+        for(long n : V) {
+            C.put(n, n-1);
+        }
+
+        for (long p = 2; p <= sqrtNum; p++) {
+            if (S.get(p).compareTo(S.get(p-1)) > 0) {   //p is prime
+                long cp = C.get(p-1);            // number of primes smaller than p
+                BigInteger sp = S.get(p-1);      // sum of primes smaller than p
+                long p2 = p*p;
+                for(long v : V) {
+                    if (v < p2) break;
+
+                    long count = C.get(v);
+                    count -= C.get(v/p) - cp;
+                    C.put(v, count);
+
+                    BigInteger sum = S.get(v);
+                    BigInteger vp = S.get(v/p).subtract(sp);
+                    sum = sum.subtract(BigInteger.valueOf(p).multiply(vp));
+                    S.put(v, sum);
+
+                    if (v == LIMIT) {
+                        ans += BigInteger.valueOf(p).multiply(BigInteger.valueOf(C.get(v/p) - cp)).mod(BIG_MOD).longValue();
+                        //ans %= MOD;
+                    }
+                }
+            }
+        }
+
+        //System.out.println(S.get(LIMIT));
+        //System.out.println(C.get(LIMIT));
+        //System.out.println(ans);
+
+        return (ans + S.get(LIMIT).mod(BIG_MOD).longValue()) % MOD;
+    }
+
+    public String solveByInclusionExclusion() {
+        System.out.println("NOTE, THIS SOLUTION IS VERY SLOW, WILL TAKE AROUND 4 HOURS TO FINISH IN A GOOD DECENT COMPUTER");
         int sqrtLimit = (int)Math.sqrt(LIMIT);
         List<Integer> primes = PrimeNumberHelper.sieveOfEratosthenesAsList(sqrtLimit);
         System.out.println("Total primes : " + primes.size());
@@ -35,8 +96,13 @@ public class JEulerProblem_0521 extends EulerSolver {
 
         long ans = (2 * prime2Combination)%MOD + (3 * prime3Combination)%MOD;
 
+        SortedSet<Long> excludeList = new TreeSet<>();
+        excludeList.add(2L);
+        excludeList.add(3L);
+        SortedSet<Long> includeList = new TreeSet<>();
+        includeList.add(2L * 3L);
+
         //Include or exclude
-        boolean include = false;
         //Calculate combination from prime 5 onwards.
         //  - |A intersection B|
         /**
@@ -51,37 +117,102 @@ public class JEulerProblem_0521 extends EulerSolver {
          *               - |p2p3p5p7|
          *
          */
-        int status = 10;
+        int status = 100;
         for(int i=2; i<primes.size(); i++) {
             if (i%status == 0) {
+                System.out.printf("(%d, %d, %d)\n",excludeList.size(), includeList.size(), ans);
                 System.out.println("Reached : " + i);
-                status *= 10;
+                //status *= 10;
             }
-            include = false;
             int currPrime = primes.get(i);
+            int nextPrime = (i < primes.size() - 1) ? primes.get(i+1) : currPrime;
+            SortedSet<Long> tmpExcludeList = new TreeSet<>();
+            List<Long> tmpExcludeListRemove = new ArrayList<>();
+            SortedSet<Long> tmpIncludeList = new TreeSet<>();
+            List<Long> tmpIncludeListRemove = new ArrayList<>();
             long curCombination = LIMIT / currPrime;
-            long tmpCombination = curCombination;
-            for(int len = 1; len <= i; len++) {
-                for (List<Integer> c : Generator.combination(primes.subList(0, i)).simple(len)) {
-                    long tmpValue = tmpCombination;
-                    for (int x : c) {
-                        tmpValue /= x;
-                    }
-                    if (include) {
-                        curCombination += tmpValue;
-                    } else {
-                        curCombination -= tmpValue;
-                    }
+            long nextComination = LIMIT / nextPrime;
+            long actualCombination = LIMIT / currPrime;
+
+            //Exclude
+            for (long n : excludeList) {
+                if ((curCombination/n) == 0) {
+                    tmpExcludeListRemove.add(n);
                 }
-                include = !include;
+                actualCombination -= (curCombination/n);
+                if (nextComination/(currPrime * n) > 0) {
+                    tmpIncludeList.add(currPrime * n);
+                }
             }
-            ans += (currPrime * curCombination)%MOD;
+
+            //Include
+            for (long n : includeList) {
+                if ((curCombination/n) == 0) {
+                    tmpIncludeListRemove.add(n);
+                }
+                actualCombination += (curCombination/n);
+                actualCombination %= MOD;
+                if (nextComination/(currPrime * n) > 0) {
+                    tmpExcludeList.add(currPrime * n);
+                }
+            }
+            ans += (currPrime * actualCombination)%MOD;
             ans %= MOD;
+
+            tmpExcludeList.add((long)currPrime);
+            excludeList.removeAll(tmpExcludeListRemove);
+            excludeList.addAll(tmpExcludeList);
+            includeList.removeAll(tmpIncludeListRemove);
+            includeList.addAll(tmpIncludeList);
         }
 
         ans += getPrimeSum(sqrtLimit, LIMIT).mod(BigInteger.valueOf(MOD)).longValue();
 
+        System.out.println();
         System.out.println(ans%MOD);
+        return "0";
+    }
+
+    public String solveBySieve() {
+        System.out.println("NOTE, THIS SOLUTION IS VERY SLOW, WILL TAKE MANY DAYS TO FINISH IN A GOOD DECENT COMPUTER");
+
+        int ARRAY_LIMIT = (int)Math.pow(10, 8);
+        int sqrtLimit = (int)Math.sqrt(LIMIT);
+        boolean[] smpf = new boolean[ARRAY_LIMIT + 1];
+        List<Integer> primes = new ArrayList<>();
+        int ans = 0;
+        for (int i=2; i<=sqrtLimit; i++) {
+            if (smpf[i]) continue;
+
+            for(long j=i; j<=LIMIT; j+=i) {
+                if (j<=ARRAY_LIMIT) {
+                    int jj = (int)j;
+                    if (smpf[jj]) continue;
+                    smpf[jj] = true;
+                    ans += i;
+                    ans %= MOD;
+                } else {
+                    boolean isValid = true;
+                    for (int p : primes) {
+                        if (j%p == 0) {
+                            isValid = false;
+                            break;
+                        }
+                    }
+                    if (isValid) {
+                        ans += i;
+                        ans %= MOD;
+                    }
+                }
+            }
+
+            //i must be a prime.
+            primes.add(i);
+        }
+        System.out.println(ans);
+        BigInteger b = getPrimeSum(sqrtLimit, LIMIT).mod(BigInteger.valueOf(MOD));
+        System.out.println(b);
+        System.out.println(ans + b.intValue());
         return "0";
     }
 
@@ -118,6 +249,6 @@ public class JEulerProblem_0521 extends EulerSolver {
 
     @Override
     public List<String> getTags() {
-        return null;
+        return Arrays.asList("prime sum", "prime counting", "inclusion-exclusion", "slowmode", "wolframalpha");
     }
 }
