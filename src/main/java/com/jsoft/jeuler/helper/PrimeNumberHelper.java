@@ -244,21 +244,14 @@ public class PrimeNumberHelper {
         for (long i = lastItem-1; i > 0; --i)
             V.add(i);
 
-        Map<Long, BigInteger> S = new HashMap<>();
-        for(long n : V) {
-            BigInteger b = BigInteger.valueOf(n).multiply(BigInteger.valueOf(n+1)).divide(BigInteger.valueOf(2)).subtract(BigInteger.ONE);
-            S.put(n, b);
-        }
-
         Map<Long, Long> C = new HashMap<>();
         for(long n : V) {
             C.put(n, n-1);
         }
 
         for (long p = 2; p <= sqrtNum; p++) {
-            if (S.get(p).compareTo(S.get(p-1)) > 0) {   //p is prime
+            if (C.get(p) > C.get(p-1)) {   //p is prime
                 long cp = C.get(p-1);            // number of primes smaller than p
-                BigInteger sp = S.get(p-1);      // sum of primes smaller than p
                 long p2 = p*p;
                 for(long v : V) {
                     if (v < p2) break;
@@ -267,10 +260,6 @@ public class PrimeNumberHelper {
                     count -= C.get(v/p) - cp;
                     C.put(v, count);
 
-                    BigInteger sum = S.get(v);
-                    BigInteger vp = S.get(v/p).subtract(sp);
-                    sum = sum.subtract(BigInteger.valueOf(p).multiply(vp));
-                    S.put(v, sum);
                 }
             }
         }
