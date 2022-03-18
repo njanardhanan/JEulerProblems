@@ -238,6 +238,7 @@ public class PrimeNumberHelper {
     }
 
     public static long getPrimeCount(long num) {
+        if (num <= 0) return 0;
         int sqrtNum = (int)Math.sqrt(num);
         List<Long> V = LongStream.range(1, sqrtNum+1).map(i -> num/i).boxed().collect(Collectors.toList());
         long lastItem = V.get(V.size() - 1);
