@@ -34,8 +34,8 @@ public class JEulerProblem_0221 extends EulerSolver {
         BigInteger ans = new BigInteger("1884161251122450");
         for(long p=1; ;p++) {
             Set<Long> divisors = NumericHelper.getDivisors(p*p+1);
+            BigInteger bigP = BigInteger.valueOf(p);
             for(long d : divisors) {
-                BigInteger bigP = BigInteger.valueOf(p);
                 BigInteger bigD = BigInteger.valueOf(d);
                 BigInteger bigAdash = bigP.add(bigP.multiply(bigP).add(BigInteger.ONE).divide(bigD));
                 BigInteger bigA = bigP.multiply(bigP.add(bigD)).multiply(bigAdash);
@@ -56,16 +56,8 @@ public class JEulerProblem_0221 extends EulerSolver {
 
         List<BigInteger> sortedAlexandrian = new ArrayList(alexandrian);
         Collections.sort(sortedAlexandrian);
-        System.out.println(sortedAlexandrian.get(TARGET-1).toString());
 
-//        int i=1;
-//        for(long a : sortedAlexandrian) {
-//            System.out.printf("%d - %d\n", i, a);
-//            i++;
-//        }
-
-
-        return Long.toString(0);
+        return sortedAlexandrian.get(TARGET-1).toString();
     }
 
     public String solve1() {
