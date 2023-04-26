@@ -49,6 +49,18 @@ public class NumericHelper {
         return listOfDivisors;
     }
 
+    public static SortedSet<Integer> getDivisorSorted(int n) {
+        SortedSet<Integer> listOfDivisors = new TreeSet<>();
+        for (int i=1; i<=Math.sqrt(n); i++) {
+            if (n%i==0) {
+                listOfDivisors.add(i);
+                listOfDivisors.add(n/i);
+            }
+        }
+
+        return listOfDivisors;
+    }
+
     public static Set<Long> getDivisors(long n) {
         Set<Long> listOfDivisors = new HashSet<>();
         for (long i=1; i<=Math.sqrt(n); i++) {
@@ -185,6 +197,11 @@ public class NumericHelper {
     public static long gcd(long a, long b) {
         if(a == 0 || b == 0) return a+b; // base case
         return gcd(b,a%b);
+    }
+
+    // method to return LCM of two numbers
+    public static int lcm(int a, int b) {
+        return (a*b)/gcd(a, b);
     }
 
     // method to return LCM of two numbers
@@ -333,6 +350,47 @@ public class NumericHelper {
                 C[j] = C[j] + C[j-1];
         }
         return C[k];
+    }
+
+    public static long choose(int n, int r) {
+
+        // p holds the value of n*(n-1)*(n-2)...,
+        // k holds the value of r*(r-1)...
+        long p = 1, k = 1;
+
+        // C(n, r) == C(n, n-r),
+        // choosing the smaller value
+        if (n - r < r) {
+            r = n - r;
+        }
+
+        if (r != 0) {
+            while (r > 0) {
+                p *= n;
+                k *= r;
+
+                // gcd of p, k
+                long m = gcd(p, k);
+
+                // dividing by gcd, to simplify
+                // product division by their gcd
+                // saves from the overflow
+                p /= m;
+                k /= m;
+
+                n--;
+                r--;
+            }
+
+            // k should be simplified to 1
+            // as C(n, r) is a natural number
+            // (denominator should be 1 ) .
+        }
+        else {
+            p = 1;
+        }
+
+        return p;
     }
 
     public static long sumOfN(long n) {
@@ -551,5 +609,30 @@ public class NumericHelper {
             }
         }
         return res;
+    }
+
+    public static int smallestNumberWithDigitSum(int N) {
+        return (N % 9 + 1) * (int)Math.pow(10, (N / 9)) - 1;
+    }
+
+    // Returns x^y mod m.
+    public static int powMod(int x, int y, int m) {
+        if (x < 0)
+            throw new IllegalArgumentException("Negative base not supported");
+        if (y < 0)
+            throw new IllegalArgumentException("Modular reciprocal not supported");
+        if (m <= 0)
+            throw new IllegalArgumentException("Modulus must be positive");
+        if (m == 1)
+            return 0;
+
+        // Exponentiation by squaring
+        int z = 1;
+        for (; y != 0; y >>>= 1) {
+            if ((y & 1) != 0)
+                z = (int)((long)z * x % m);
+            x = (int)((long)x * x % m);
+        }
+        return z;
     }
 }

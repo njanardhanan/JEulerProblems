@@ -69,7 +69,7 @@ public class PrimeNumberHelper {
         // all entries it as true. A value in prime[i] will
         // finally be false if i is Not a prime, else true.
         boolean prime[] = new boolean[n+1];
-        for(int i=0;i<n;i++)
+        for(int i=0;i<=n;i++)
             prime[i] = true;
 
         prime[0] = prime[1] = false;
@@ -90,7 +90,7 @@ public class PrimeNumberHelper {
     public static List<Integer> sieveOfEratosthenesAsList(int n) {
         boolean[] primes = sieveOfEratosthenes(n);
         List<Integer> primeList = new ArrayList();
-        for(int i=0; i<n; i++) {
+        for(int i=0; i<=n; i++) {
             if(primes[i]) {
                 primeList.add(i);
             }
@@ -101,7 +101,7 @@ public class PrimeNumberHelper {
     public static List<Long> sieveOfEratosthenesAsLongList(int n) {
         boolean[] primes = sieveOfEratosthenes(n);
         List<Long> primeList = new ArrayList();
-        for(int i=0; i<n; i++) {
+        for(int i=0; i<=n; i++) {
             if(primes[i]) {
                 primeList.add((long)i);
             }
@@ -146,6 +146,25 @@ public class PrimeNumberHelper {
             }
         }
         return primes;
+    }
+
+    public static int[] smallestPrimeFactors(int n) {
+        int[] spf = new int[n+1];
+        int limit = (int)Math.sqrt(n);
+        for (int i=2; i<=n; i++) {
+            if (spf[i] == 0) {
+                spf[i] = i;
+                if (i <= limit) {
+                    for (int j = i * i; j <= n; j += i) {
+                        if (spf[j] == 0)
+                            spf[j] = i;
+                    }
+                }
+
+            }
+        }
+
+        return spf;
     }
 
     /**
