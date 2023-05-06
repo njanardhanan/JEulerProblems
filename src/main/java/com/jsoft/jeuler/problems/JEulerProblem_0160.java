@@ -50,7 +50,14 @@ public class JEulerProblem_0160 extends EulerSolver {
 
     @Override
     public String getProblemStatement() {
-        return "This is a template file";
+        return "For any N, let f(N) be the last five digits before the trailing zeroes in N!.\n" +
+                "For example,\n" +
+                "\n" +
+                "9! = 362880 so f(9)=36288\n" +
+                "10! = 3628800 so f(10)=36288\n" +
+                "20! = 2432902008176640000 so f(20)=17664\n" +
+                "\n" +
+                "Find f(1,000,000,000,000)";
     }
 
     @Override
