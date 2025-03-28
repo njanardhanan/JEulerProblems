@@ -26,7 +26,7 @@ public class JEulerProblem_0294 extends EulerSolver {
         System.out.println((((Long)(long)Math.pow(11L,12L))).toString());
         Map<Long, Long> map = new HashMap<>();
         Map<Long, Long> map1 = new HashMap<>();
-        for (long i=23; i<1000000L; i++) {
+        for (long i=23; i<1000000L; i+=23) {
             boolean flag = i%23 == 0;
             if (NumericHelper.sumOfDigits(i) == 23L) {
                 if (flag) {

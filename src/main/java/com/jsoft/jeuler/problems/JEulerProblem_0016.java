@@ -16,6 +16,8 @@ public class JEulerProblem_0016 extends EulerSolver {
     public String solve() {
         BigInteger n = new BigInteger("2");
         String twoPowerThousand = n.pow(1000).toString();
+        double logValue = 1000 * Math.log10(2);
+        System.out.println(logValue);
 
         return Long.toString(NumericHelper.sumOfDigits(twoPowerThousand));
 

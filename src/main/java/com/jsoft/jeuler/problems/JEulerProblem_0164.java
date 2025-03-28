@@ -14,10 +14,12 @@ public class JEulerProblem_0164 extends EulerSolver {
     }
 
     private Map<Integer, Map<Integer, Map<Integer, Long>>> memo = new HashMap<>();
+    int memoHitCount = 0;
 
     @Override
     public String solve() {
         long ans = solve(0, 0, 20, true);
+        System.out.println("Memo hits: " + memoHitCount);
         return Long.toString(ans);
     }
 
@@ -29,6 +31,7 @@ public class JEulerProblem_0164 extends EulerSolver {
         if (memo.containsKey(digits)) {
             if (memo.get(digits).containsKey(prev)) {
                 if (memo.get(digits).get(prev).containsKey(prevPrev)) {
+                    memoHitCount++;
                     return memo.get(digits).get(prev).get(prevPrev);
                 }
             }
@@ -38,7 +41,7 @@ public class JEulerProblem_0164 extends EulerSolver {
 
         for (int current=0; current<=9; current++) {
             if (isFirstDigit && current == 0) continue;
-            if (prevPrev + prev + current > 9) continue;
+            if (prevPrev + prev + current > 9) break;
             result += solve(prev, current, digits - 1, false);
         }
 

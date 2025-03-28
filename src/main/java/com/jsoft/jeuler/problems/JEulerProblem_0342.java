@@ -108,10 +108,10 @@ public class JEulerProblem_0342 extends EulerSolver {
     @Override
     public String getProblemStatement() {
         return "Consider the number 50.\n" +
-                "502 = 2500 = 22 × 54, so φ(2500) = 2 × 4 × 53 = 8 × 53 = 23 × 53. 1\n" +
+                "50^2 = 2500 = 2^2 × 5^4, so φ(2500) = 2 × 4 × 5^3 = 8 × 5^3 = 2^3 × 5^3. 1\n" +
                 "So 2500 is a square and φ(2500) is a cube.\n" +
                 "\n" +
-                "Find the sum of all numbers n, 1 < n < 1010 such that φ(n2) is a cube.\n" +
+                "Find the sum of all numbers n, 1 < n < 10^10 such that φ(n^2) is a cube.\n" +
                 "\n" +
                 "φ denotes Euler's totient function.";
     }
