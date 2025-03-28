@@ -18,7 +18,7 @@ public class JEulerProblem_0668 extends EulerSolver {
          * A number is NOT square-root-smooth, if and only if n=xp for some prime p and x<=p.
          * Therefore, the number of square-root-smooth not exceeding n is given by
          *
-         * a(n) = n - Sum_{i=1..floor(sqrt(n))} (pi(floor(n/i)) - pi(i-i)).
+         * a(n) = n - Sum_{i=1..floor(sqrt(n))} (pi(floor(n/i)) - pi(i)).
          * where pi() is a prime counting function.
          *
          * Refer : https://oeis.org/A064775

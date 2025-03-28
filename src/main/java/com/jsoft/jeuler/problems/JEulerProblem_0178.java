@@ -28,6 +28,7 @@ public class JEulerProblem_0178 extends EulerSolver {
                 ans += r;
             }
         }
+        //126461847755
         return Long.toString(ans);
     }
 
@@ -102,7 +103,7 @@ public class JEulerProblem_0178 extends EulerSolver {
                 "It can be seen that each pair of consecutive digits of 45656 has a difference of one.\n" +
                 "A number for which every pair of consecutive digits has a difference of one is called a step number.\n" +
                 "A pandigital number contains every decimal digit from 0 to 9 at least once.\n" +
-                "How many pandigital step numbers less than 1040 are there?";
+                "How many pandigital step numbers less than 10^40 are there?";
     }
 
     @Override

@@ -128,6 +128,26 @@ public class NumericHelper {
         return primeFactors;
     }
 
+    public static Map<Integer, Integer> getPrimeFactorAsInt(int n, List<Integer> primes) {
+        Map<Integer, Integer> primeFactors = new HashMap();
+
+        for(int p : primes) {
+            while (n%p == 0) {
+                addToMapAsInt(primeFactors, p);
+                n = n / p;
+            }
+            if (n < p) {
+                break;
+            }
+        }
+
+        if (n>2) {
+            addToMapAsInt(primeFactors, n);
+        }
+
+        return primeFactors;
+    }
+
     public static Map<Long, Integer> getPrimeFactors(long n, List<Long> primes) {
         Map<Long, Integer> primeFactors = new HashMap();
 
@@ -146,6 +166,15 @@ public class NumericHelper {
         }
 
         return primeFactors;
+    }
+
+    private static Map<Integer, Integer> addToMapAsInt(Map<Integer, Integer> map, int key) {
+        if(map.containsKey(key)) {
+            map.put(key, map.get(key)+1);
+        } else {
+            map.put(key, 1);
+        }
+        return map;
     }
 
     private static Map<Long, Integer> addToMap(Map<Long, Integer> map, long key) {
@@ -207,6 +236,11 @@ public class NumericHelper {
     // method to return LCM of two numbers
     public static long lcm(long a, long b) {
         return (a*b)/gcd(a, b);
+    }
+
+    public static long lcmA(long a, long b) {
+        long gcd = gcd(a,b);
+        return (a/gcd) * (b/gcd);
     }
 
     public static int getAmicablePair(int n) {
@@ -296,6 +330,32 @@ public class NumericHelper {
         }
         Collections.reverse(digits);
         return digits;
+    }
+
+    public static List<Long> toDigits(long n) {
+        List<Long> digits = new ArrayList();
+        while(n>0) {
+            digits.add(n%10);
+            n /= 10;
+        }
+        Collections.reverse(digits);
+        return digits;
+    }
+
+    public static long fromDigits(List<Integer> digits) {
+        long n = 0;
+        for (int d : digits) {
+            n = n * 10 + d;
+        }
+        return n;
+    }
+
+    public static long fromDigitsLong(List<Long> digits) {
+        long n = 0;
+        for (long d : digits) {
+            n = n * 10 + d;
+        }
+        return n;
     }
 
     public static boolean isBouncyNumber(int n) {

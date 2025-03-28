@@ -57,7 +57,7 @@ public class JEulerProblem_0204 extends EulerSolver {
 
     @Override
     public String getProblemStatement() {
-        return "https://projecteuler.net/thread=112";
+        return "https://projecteuler.net/thread=204";
     }
 
     @Override

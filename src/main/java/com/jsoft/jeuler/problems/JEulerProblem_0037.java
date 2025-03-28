@@ -2,11 +2,8 @@ package com.jsoft.jeuler.problems;
 
 import com.jsoft.jeuler.helper.PrimeNumberHelper;
 import com.jsoft.jeuler.solver.EulerSolver;
-import sun.nio.cs.ext.MacHebrew;
 
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 
 public class JEulerProblem_0037 extends EulerSolver {
 

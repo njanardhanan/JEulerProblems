@@ -16,8 +16,6 @@ public class JEulerProblem_0125 extends EulerSolver {
 
     @Override
     public String solve() {
-
-
         int TARGET = (int)Math.pow(10, 8);
         int LIMIT = (int)Math.sqrt(TARGET)/2;
 
@@ -55,8 +53,6 @@ public class JEulerProblem_0125 extends EulerSolver {
 
         return s;
     }
-
-
 
     @Override
     public String getProblemStatement() {

@@ -2,6 +2,7 @@ package com.jsoft.jeuler.problems;
 
 import com.jsoft.jeuler.solver.EulerSolver;
 
+import java.util.Arrays;
 import java.util.List;
 
 public class JEulerProblem_0301 extends EulerSolver {
@@ -44,6 +45,6 @@ public class JEulerProblem_0301 extends EulerSolver {
 
     @Override
     public List<String> getTags() {
-        return null;
+        return Arrays.asList("game", "nim", "game theory");
     }
 }

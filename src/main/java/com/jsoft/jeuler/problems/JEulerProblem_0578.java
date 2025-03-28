@@ -2,6 +2,7 @@ package com.jsoft.jeuler.problems;
 
 import com.jsoft.jeuler.helper.NumericHelper;
 import com.jsoft.jeuler.helper.PrimeNumberHelper;
+import com.jsoft.jeuler.prime.PrimeIndexGenerator;
 import com.jsoft.jeuler.solver.EulerSolver;
 
 import java.math.BigInteger;
@@ -16,8 +17,6 @@ import java.util.Map;
 import java.util.Set;
 
 public class JEulerProblem_0578 extends EulerSolver {
-
-
 
     private long TARGET = (long)Math.pow(10, 13);
     private Map<Long, Long> primeCountMemo = new HashMap<>();
@@ -193,48 +192,6 @@ public class JEulerProblem_0578 extends EulerSolver {
         }
     }
 
-    class PrimeIndexGenerator {
-        private LinkedList<Integer> primeIndex;
-
-        public PrimeIndexGenerator(int size) {
-            primeIndex = new LinkedList<>();
-            for (int i=0; i<size; i++) {
-                primeIndex.add(i);
-            }
-        }
-
-        public LinkedList<Integer> getPrimeIndex() {
-            return primeIndex;
-        }
-
-        public void next() {
-            int lastIndex = primeIndex.size()-1;
-            primeIndex.set(lastIndex, primeIndex.get(lastIndex) + 1);
-        }
-
-        public boolean leftShift() {
-            return leftShift(primeIndex.size() - 2);
-        }
-
-        private boolean leftShift(int index) {
-            if (index < 0) {
-                return false;
-                //primeIndex.set(0, primeIndex.get(0) + 1);
-                //return true;
-            }
-            int v = primeIndex.get(index) + 1;
-            if (v == primeIndex.get(index + 1)) {
-                return leftShift(index-1);
-            } else {
-                primeIndex.set(index, v);
-                for (int i = index + 1; i < primeIndex.size(); i++) {
-                    primeIndex.set(i, primeIndex.get(i - 1) + 1);
-                }
-            }
-            return true;
-        }
-    }
-
     public JEulerProblem_0578(int problemNumber) {
         super(problemNumber);
     }
@@ -273,7 +230,6 @@ public class JEulerProblem_0578 extends EulerSolver {
 
                 if (v == primes.get(primeIndies.get(primeIndies.size()-1) + 1)) {
                     ans += 1;
-                    generator.next();
                 } else {
                     //long noOfPrimesA = PrimeNumberHelper.getPrimeCount(primes.get(primeIndies.get(primeIndies.size()-1)));
                     long noOfPrimesA = primeIndies.get(primeIndies.size() - 1) + 1;
@@ -286,8 +242,8 @@ public class JEulerProblem_0578 extends EulerSolver {
                     }
 
                     ans += (noOfPrimesB - noOfPrimesA);
-                    generator.next();
                 }
+                generator.next();
             }
         } while(generator.leftShift());
         return ans;
@@ -329,7 +285,7 @@ public class JEulerProblem_0578 extends EulerSolver {
             //System.out.println("Reached : " + i);
             NonDecreasingPrimePower n = new NonDecreasingPrimePower(i, primes, TARGET);
             do {
-                List<NonDecreasingPrimePower.NonDecreasingPrimePowerData> data = n.getPrimePower();
+                //List<NonDecreasingPrimePower.NonDecreasingPrimePowerData> data = n.getPrimePower();
 //                if (data.size() == 3 &&
 //                        data.get(0).primePower == 3 &&
 //                        data.get(1).primePower == 1 &&
@@ -421,11 +377,11 @@ public class JEulerProblem_0578 extends EulerSolver {
 
     @Override
     public String getProblemStatement() {
-        return "This is a template file";
+        return "https://projecteuler.net/problem=578";
     }
 
     @Override
     public List<String> getTags() {
-        return Arrays.asList();
+        return Arrays.asList("prime", "sliding window", "sliding", "exponent", "prime power");
     }
 }

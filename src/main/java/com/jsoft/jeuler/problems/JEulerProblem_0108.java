@@ -2,7 +2,6 @@ package com.jsoft.jeuler.problems;
 
 import com.jsoft.jeuler.helper.NumericHelper;
 import com.jsoft.jeuler.solver.EulerSolver;
-import org.omg.PortableServer.LIFESPAN_POLICY_ID;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -27,7 +26,7 @@ public class JEulerProblem_0108 extends EulerSolver {
          * 1/X+1/Y=1/N is equivalent to (X-N)(Y-N)=N^2
          *
          * if the prime factorization of N is N = p1^i1*p2^i2*...*pk^ik
-         * then no. of divisor for N is (2*i1+1)(2*i2+1)...(2*ik+1)
+         * then no. of divisor for N is (i1+1)(i2+1)...(ik+1)
          *
          * Let N = p1^k1 * p2^k2
          * then N^2 = p1^2k1 * p2^2k2

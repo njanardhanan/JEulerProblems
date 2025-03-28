@@ -286,4 +286,53 @@ public class PrimeNumberHelper {
 
         return C.get(num);
     }
+
+    public static Map<Long, Long> sievePrimeCounts(long num) {
+        Map<Long, Long> C = new HashMap<>();
+        if (num <= 0) return C;
+        int sqrtNum = (int)Math.sqrt(num);
+        List<Long> V = LongStream.range(1, sqrtNum+1).map(i -> num/i).boxed().collect(Collectors.toList());
+        long lastItem = V.get(V.size() - 1);
+        for (long i = lastItem-1; i > 0; --i)
+            V.add(i);
+
+
+        for(long n : V) {
+            C.put(n, n-1);
+        }
+
+        for (long p = 2; p <= sqrtNum; p++) {
+            if (C.get(p) > C.get(p-1)) {   //p is prime
+                long cp = C.get(p-1);            // number of primes smaller than p
+                long p2 = p*p;
+                for(long v : V) {
+                    if (v < p2) break;
+
+                    long count = C.get(v);
+                    count -= C.get(v/p) - cp;
+                    C.put(v, count);
+
+                }
+            }
+        }
+
+        return C;
+    }
+
+    public static Map<Integer, Integer> getPrimeFactorsForFactorial(int n) {
+        List<Integer> primes = sieveOfEratosthenesAsList(n);
+        Map<Integer, Integer> primeFactors = new HashMap<>();
+        for (int prime : primes) {
+            int x = n;
+            int freq = 0;
+
+            while ( x/prime > 0 ) {
+                freq += x / prime;
+                x = x / prime;
+            }
+            primeFactors.put(prime, freq);
+            //System.out.printf("%d^%d\n", prime, freq );
+        }
+        return primeFactors;
+    }
 }

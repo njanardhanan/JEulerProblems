@@ -121,6 +121,6 @@ public class JEulerProblem_0757 extends EulerSolver {
 
     @Override
     public List<String> getTags() {
-        return null;
+        return Arrays.asList("stealthy", "bipronics", "OEIS", "A072389");
     }
 }
