@@ -2,7 +2,7 @@ import com.jsoft.jeuler.solver.EulerSolverFactory;
 import com.jsoft.jeuler.utils.Logger;
 
 public class Main {
-    public static final int PROBLEM_NUMBER = 708;
+    public static final int PROBLEM_NUMBER = 938;
     public static final boolean IN_PROGRESS = false;
 
     public static void main(String[] args) {
