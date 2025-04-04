@@ -76,11 +76,15 @@ public class JEulerProblem_0845 extends EulerSolver {
 
     @Override
     public String getProblemStatement() {
-        return "This is a template file";
+        return "https://projecteuler.net/problem=845\n" +
+                "Let $D(n)$ be the $n$-th positive integer that has the sum of its digits a prime.<br>\n" +
+                "For example, $D(61) = 157$ and $D(10^8) = 403539364$.</p>\n" +
+                "\n" +
+                "Find $D(10^{16})$.</p>";
     }
 
     @Override
     public List<String> getTags() {
-        return Arrays.asList();
+        return Arrays.asList("prime", "nth number", "dp", "dynamic programing");
     }
 }
